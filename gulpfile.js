@@ -37,10 +37,11 @@ var karma = require('karma').server;
 
 // FilePaths
 // ---------------------------------------------------------------
-var scriptDir = './client',
-    scriptFile = 'main.js',
+var clientDir = './client',
+    serverDir = './server',
     buildDir = './public',
-    buildFile = 'script.js';
+    buildFile = 'script.js',
+    scriptFile = 'main.js';
 
 // Browserify + Watchify
 // ---------------------------------------------------------------
@@ -56,7 +57,7 @@ function handleErrors() {
 function buildScript(file, watch) {
 
     var props = {
-        entries: [scriptDir + '/' + file],
+        entries: [clientDir + '/' + file],
         debug: true,
         transform: [babelify]
     };
@@ -78,15 +79,17 @@ function buildScript(file, watch) {
         rebundle();
         gutil.log('Rebundle...');
     });
-    
+
     return rebundle();
 }
+
 
 // Gulp Tasks - CSS
 // ---------------------------------------------------------------
 
 gulp.task('buildCSS', function() {
-    return gulp.src('./client/scss/main.scss')
+
+    return gulp.src(clientDir+'/scss/main.scss')
         .pipe(sass({
             errLogToConsole: true
         }))
@@ -94,16 +97,16 @@ gulp.task('buildCSS', function() {
         .pipe(gulp.dest(buildDir));
 });
 
-gulp.task('reloadCSS', function () {
-    return gulp.src('./public/style.css').pipe(livereload());
+gulp.task('reloadCSS', function() {
+    return gulp.src(buildDir + '/style.css').pipe(livereload());
 });
 
 // Gulp Tasks - Client JS
 // ---------------------------------------------------------------
 
-gulp.task('lintJS', function () {
+gulp.task('lintJS', function() {
 
-    return gulp.src(['client/**/*.js', 'server/**/*.js'])
+    return gulp.src([clientDir + '/**/*.js', serverDir +'/**/*.js'])
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failOnError());
@@ -115,36 +118,42 @@ gulp.task('buildJS', function() {
 });
 
 // Live reload business.
-gulp.task('reload', function () {
+gulp.task('reload', function() {
     livereload.reload();
 });
 
+gulp.task('icons', function() { 
+    return gulp.src([
+        './node_modules/font-awesome/fonts/**.*',
+        './node_modules/bootswatch-sass/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/**/*'
+        ]) 
+        .pipe(gulp.dest(buildDir + '/fonts')); 
+});
+
+
+// Gulp Task - Default Behavior
+// ----------------------------------------------------------------
 gulp.task('default', function() {
 
     livereload.listen();
-    gulp.start(['buildCSS', 'buildJS']);
+    gulp.start(['icons', 'buildCSS', 'buildJS']);
 
     gulp.watch(
-        ['client/**/*.js', 'server/**/*.js', 'client/**/*.html'],
-        function(){
-            runSeq('lintJS', 'buildJS','reload');
+        [clientDir + '/**/*.js', serverDir+'/**/*.js', clientDir + '/**/*.html'],
+        function() {
+            runSeq('lintJS', 'buildJS', 'reload');
         }
     );
 
     gulp.watch(
-        ['client/scss/**/*.scss'],
-        function(){
+        [clientDir + '/scss/**/*.scss'],
+        function() {
             runSeq('buildCSS', 'reloadCSS')
         }
     );
 
     gulp.watch(
-        ['client/**/*.html', 'server/app/views/*.html'],
-        ['reload']
-    );
-
-    gulp.watch(
-        ['client/**/*.js','server/**/*.js'], ['lintJS']
+        [clientDir + '/**/*.html', serverDir+'/app/views/*.html'], ['reload']
     );
 
 

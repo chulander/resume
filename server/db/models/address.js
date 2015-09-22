@@ -8,8 +8,7 @@ var schema = new mongoose.Schema({
         required: true
     },
     line2: {
-        type: String,
-        required: true  
+        type: String
     },
     city: {
         type: String,

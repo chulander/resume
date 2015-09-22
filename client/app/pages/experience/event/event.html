@@ -1,0 +1,15 @@
+<div class="timeline-badge" ng-model=model.invert>
+    <i class="fa fa-briefcase" ng-click="done({invert:invert})"></i>
+</div>
+<div class="timeline-panel">
+    <div class="timeline-heading">
+        <h2 class="timeline-title">{{job.company}}</h4>
+        <p><small class="text-muted">{{job.startDate | filterTimeStampToDate}} to {{job.endDate | filterTimeStampToDate}}</small>
+        </p>
+    </div>
+    <div>
+    </div>
+    <div class="timeline-body">
+        <p ng-repeat="p in job.position">{{p.position}}</p>
+    </div>
+</div>

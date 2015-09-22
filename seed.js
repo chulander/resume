@@ -63,13 +63,10 @@ var createPosition = function(title, position, startDate, endDate) {
     }
 }
 
-//currying
-//
-//var markitJob = new createJob('Markit', markitAddress, markitPositions, '8/10/2010', '6/5/2015');
-var markitJob = new createJob('Markit', null, null, '8/10/2010', '6/5/2015');
-console.log('what is MarkitJob', markitJob);
+
 var seedJobs = function() {
 
+    var markitJob = new createJob('Markit', null, null, '8/10/2010', '6/5/2015');
     var markitAddress = createAddress('620 8th Avenue', '35th Floor', 'New York', 'NY', '10018');
     var markitPosition1 = new createPosition(
         'Vice President',
@@ -93,39 +90,76 @@ var seedJobs = function() {
         '12/31/2011'
     );
 
-    var markitPositions = [markitPosition1,markitPosition2,markitPosition3]
-    
-    
-   
+    var markitPositions = [markitPosition1, markitPosition2, markitPosition3]
+
+    var mlAddress = new Address(new createAddress('2 World Financial Center', null, 'New York', 'NY', '10281'));
+    var msAddress = new Address(new createAddress('Harborside Financial Center', 'Plaza Two', 'Jersey City', 'NJ', '07331'));
+
+    var mlPosition = new Position(new createPosition('Senior Specialist', 'VBA Developer', null, null));
+    var msPosition = new Position(new createPosition('Analyst', 'Operations Analyst', null, null));
+
+
+    var mlJob = new createJob('Merrill Lynch', mlAddress, mlPosition, '7/9/2007', '8/7/2010');
+    var msJob = new createJob('Morgan Stanley', msAddress, msPosition, '5/15/2006', '7/3/2007');
+
+    Job.createAsync(mlJob)
+        .then(function(item) {
+            return Job.findOne(item)
+                //.populate('address')
+                //.exec(markitAddress.save())
+                .populate(['position', 'address'])
+                .exec([mlPosition.save(), mlAddress.save()])
+        })
+        .then(function(savedJob) {
+            console.log('what is saved', savedJob);
+        })
+        .catch(function(e) {
+            console.log('waht is error', e);
+        })
+
+    Job.createAsync(msJob)
+        .then(function(item) {
+            return Job.findOne(item)
+                //.populate('address')
+                //.exec(markitAddress.save())
+                .populate('position', 'address')
+                .exec([[msPosition.save()], msAddress.save()])
+        })
+        .then(function(savedJob) {
+            console.log('what is saved', savedJob);
+        })
+        .catch(function(e) {
+            console.log('waht is error', e);
+        })
+
+
     return Address.createAsync(markitAddress)
-        .then(function(address){
-            console.log('what is address', address);
-            markitJob.address=address;
+        .then(function(address) {
+            markitJob.address = address;
             return Position.createAsync(markitPositions)
         })
-        .then(function(positions){
+        .then(function(positions) {
             markitJob.position = positions;
             return Job.createAsync(markitJob);
-        }).then(function(job){
-            console.log('what is result job', job);
+        }).then(function(job) {
             return Job.findOne(job)
                 .populate(['position', 'address'])
                 .exec([markitJob.position, markitJob.address])
         })
-        .then(function(result){
+        .then(function(result) {
             console.log('what is result', result)
         })
-        .catch(function(e){
+        .catch(function(e) {
             console.log('error', e);
         })
 
 
-    
+
 
     // return Position.createAsync(markitPositions)
     //         .then(function(item){
     //             Jobs.createAsync(markitJob)
-                
+
     //         })
     //         .then(function(job){
     //             return Job.findOne()

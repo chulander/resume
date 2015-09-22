@@ -1,5 +1,4 @@
-//var fs = require('fs');
-//
+
 function experienceState($stateProvider) {
     $stateProvider
         .state('experience', {
