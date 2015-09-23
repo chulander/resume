@@ -15,7 +15,6 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    shimify = require('browserify-shim'),
     uglify = require('gulp-uglify'),
     gutil = require('gulp-util'),
     notify = require('gulp-notify');
