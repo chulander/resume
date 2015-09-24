@@ -2,11 +2,13 @@
 //var states = require('../states');
 //var _ = require('lodash');
 
-var states = require('../pages');
+
 
 
 
 function navbar() {
+
+    var states = require('../pages');
     console.log('what is states', states.requires);
     return {
         restrict: 'E',
@@ -15,7 +17,7 @@ function navbar() {
         link: function(scope) {
             //this is for the hamburger responsive icon
             scope.spans = new Array(3);
-            scope.items = require('../pages').requires
+            scope.items = states.requires
             // scope.items = [{
             //         label: 'Home',
             //         state: 'home'
