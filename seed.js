@@ -70,7 +70,7 @@ var seedJobs = function() {
     var markitAddress = createAddress('620 8th Avenue', '35th Floor', 'New York', 'NY', '10018');
     var markitPosition1 = new createPosition(
         'Vice President',
-        'Product Mananger',
+        'Product Manager',
         '1/1/2014',
         '6/5/2015'
     );
@@ -85,7 +85,7 @@ var seedJobs = function() {
 
     var markitPosition3 = new createPosition(
         'Associate',
-        'Project Analyst',
+        'Product Analyst',
         '8/10/2010',
         '12/31/2011'
     );
