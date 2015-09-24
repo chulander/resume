@@ -1,6 +1,5 @@
 function ProfileCtrl($scope){
-	this.title = 'testing job';
-
+	this.title = 'profile check';
 }
 
 ProfileCtrl.$inject = ['$scope'];
