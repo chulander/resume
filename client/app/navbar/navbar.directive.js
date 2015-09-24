@@ -2,7 +2,6 @@
 //var states = require('../states');
 //var _ = require('lodash');
 
-var stateItems = [];
 var states = require('../pages');
 
 
