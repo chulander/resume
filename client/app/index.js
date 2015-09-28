@@ -3,7 +3,9 @@
 
 // var dependencies = [
 // 'meanResume']
-
+//require('scrollreveal');
+// var sk = require('scrollreveal')
+// console.log('what is skroll', sk);
 var angular = require('angular');
 var app = angular.module('app', [
 
@@ -19,3 +21,5 @@ var app = angular.module('app', [
 //console.log('yo name' , require('./navbar').name);
 
 module.exports = app;
+
+
