@@ -5,7 +5,7 @@ function event(){
 			job: '=',
 			done: '&'
 		},
-		templateUrl:'/app/pages/experience/event/event.html'
+		templateUrl:'/app/common/directives/event/event.html'
 		
 	}
 }

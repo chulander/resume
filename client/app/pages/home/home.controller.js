@@ -1,7 +1,7 @@
 
-function HomeCtrl($scope, jobs){
-	$scope.jobs = jobs;
+function HomeCtrl($scope, socials){
+	$scope.socials = socials;
 }
 
-HomeCtrl.$inject = ['$scope'];
+HomeCtrl.$inject = ['$scope', 'socials'];
 module.exports = HomeCtrl;
