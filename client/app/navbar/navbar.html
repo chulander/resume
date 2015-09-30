@@ -4,7 +4,7 @@
     <div class="navbar-header">
       <button type="button" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
-        <span ng-repeat="n in spans track by $index" class="icon-bar"</span>
+        <span ng-repeat="n in spans track by $index" class="icon-bar"></span>
       </button>
       <a class="navbar-brand" ui-sref="home">Bryan Chu</a>
     </div>
@@ -12,14 +12,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
       <ul class="nav navbar-nav">
-        <li ng-repeat="item in items | orderBy : item" ng-if="item !='home'" ng-class="{'dropdown' : item==='skills'}">
+<!--         <li ng-repeat="item in items | orderBy : item" ng-if="item !='home'" ng-class="{'dropdown' : item==='skills'}" ng-attribute="{'dropdown' : item==='skills'}">
+ -->            
+         <li ng-repeat="item in items | orderBy : item" ng-if="item !='home'" class="dropdown" dropdown>
             
-            <a ng-if="item!=='skills'" ui-sref-active="active" ui-sref="{{ item }}">{{ item | uppercase}}</a>
-            
-            <a ng-if="item==='skills'" ui-sref="{{item}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{item | uppercase}} <span class="caret"></span>
-            </a>
 
-          <ul class="dropdown-menu">
+            <a ui-sref-active="active" ui-sref="{{ item }}">
+              {{ item | uppercase}}
+
+            <span ng-if="item =='skills'" class="caret" class="dropdown-toggle" dropdown-toggle></span>
+            </a>
+          <ul class="dropdown-menu" dropdown-menu>
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
@@ -29,9 +32,10 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         
+          
+          
         </li>
 
-          
         
       </ul>
     </div><!-- /.navbar-collapse -->

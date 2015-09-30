@@ -6,6 +6,7 @@ function event(){
 			done: '&'
 		},
 		templateUrl:'/app/pages/experience/event/event.html'
+		
 	}
 }
 

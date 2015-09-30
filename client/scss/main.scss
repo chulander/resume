@@ -7,6 +7,8 @@
 @import "../../node_modules/font-awesome/scss/_variables";
 @import "../../node_modules/font-awesome/scss/font-awesome";
 
+
+@import "vendor-prefix.scss";
 @import "../app/navbar/navbar";
 @import "../app/pages/experience/experience";
 @import "../app/pages/profile/profile";

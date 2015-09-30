@@ -145,7 +145,7 @@ gulp.task('default', function() {
     );
 
     gulp.watch(
-        [clientDir + '/scss/**/*.scss'],
+        [clientDir + '/scss/**/*.scss', clientDir + '/**/*.scss'],
         function() {
             runSeq('buildCSS', 'reloadCSS')
         }
