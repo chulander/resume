@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     mocha = require('gulp-mocha'),
     minifyCSS = require('gulp-minify-css'),
-    ngAnnotate = require('gulp-ng-annotate'),
+    //ngAnnotate = require('gulp-ng-annotate'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
@@ -21,7 +21,8 @@ var gulp = require('gulp'),
 
 var rename = require('gulp-rename');
 var through2 = require('through2');
-
+var ngannotate = require('browserify-ngannotate');
+var uglifyify = require('uglifyify');
 var _ = require('lodash');
 // Browserify Modules
 
@@ -57,8 +58,8 @@ function buildScript(file, watch) {
 
     var props = {
         entries: [clientDir + '/' + file],
-        debug: true,
-        transform: [babelify]
+        debug: true
+        ,transform: [babelify, ngannotate, uglifyify]
     };
 
     // watchify() if watch requested, otherwise run browserify() once 
@@ -74,11 +75,12 @@ function buildScript(file, watch) {
     }
 
     //listen for an update and run rebundle
+    
     bundler.on('update', function() {
         rebundle();
         gutil.log('Rebundle...');
     });
-
+    
     return rebundle();
 }
 

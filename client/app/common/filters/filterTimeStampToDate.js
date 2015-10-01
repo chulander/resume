@@ -1,6 +1,6 @@
 function filterDate($filter) {
     return function(input) {
-        if (input == null) {
+        if (input === null) {
             return "";
         }
 
