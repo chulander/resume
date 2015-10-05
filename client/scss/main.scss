@@ -1,14 +1,16 @@
 @import "../../node_modules/bootswatch-sass/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables";
-@import "../../node_modules/bootswatch-sass/flatly/_variables";
+@import "../../node_modules/bootswatch-sass/simplex/_variables";
 
 @import "../../node_modules/bootswatch-sass/bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap";
-@import "../../node_modules/bootswatch-sass/flatly/_bootswatch";
+@import "../../node_modules/bootswatch-sass/simplex/_bootswatch";
 
 @import "../../node_modules/font-awesome/scss/_variables";
 @import "../../node_modules/font-awesome/scss/font-awesome";
 
+$filePath: "../app";
 
 @import "vendor-prefix.scss";
+@import "../app/common/directives/card/card";
 @import "../app/navbar/navbar";
 @import "../app/pages/experience/experience";
 @import "../app/pages/profile/profile";
@@ -17,3 +19,9 @@
 
 
 
+.nyc {
+    height: 100vh;
+    background-image: url('/asset/nyc-wall.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

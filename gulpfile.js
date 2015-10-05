@@ -59,7 +59,8 @@ function buildScript(file, watch) {
     var props = {
         entries: [clientDir + '/' + file],
         debug: true
-        ,transform: [babelify, ngannotate, uglifyify]
+        //,transform: [babelify, ngannotate, uglifyify]
+        ,transform: [babelify]
     };
 
     // watchify() if watch requested, otherwise run browserify() once 

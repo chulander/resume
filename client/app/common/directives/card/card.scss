@@ -1,0 +1,26 @@
+
+
+.card {
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+.card:hover {
+    margin-top: -10px;
+    border: 1px solid white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    background: rgba(255,255,255,0.2);
+}
+
+
+
+.card:hover img {
+    border-radius: 50%;
+    // @include prefix('transform', 'rotate(360deg)');
+}
+
+.card>.img-circle.img-thumbnail{
+    height:40vh;
+    width:40vw;
+}

@@ -5,36 +5,42 @@
 }
 
 
-
+[ui-view] {
+    @include prefix('perspective', '800px');
+    @include prefix('transform-style', 'preserve-3d');
+}
 
 [ui-view].ng-enter,
 [ui-view].ng-leave {
     position: absolute;
     left: 0;
     right: 0;
-    @include prefix('transition', 'all 1s ease-in-out');
 }
 
-[ui-view].ng-enter {
+[ui-view].ng-enter{
     opacity: 0;
+    @include prefix('transition', 'all 2s ease-in-out 0.33s');
     @include prefix('transform', 'scale3d(0, 0, 0.5)');
+
 }
+
 
 [ui-view].ng-enter-active {
     opacity: 1;
     @include prefix('transform', 'scale3d(1, 1, 1)');
+    //@include prefix('transform', 'rotateY(-180deg)');
 }
 
 
-[ui-view].ng-leave {
+[ui-view].ng-leave{
     opacity: 1;
-    @include prefix('transform', 'translate3d(0, 0, 0)');
-    
+    @include prefix('transition', 'all 2s ease-in-out');
 }
 
-[ui-view].ng-leave-active {
+
+[ui-view].ng-leave-active{
     opacity: 0;
-    @include prefix('transform', 'translate3d(100vw, 0 ,0)');
-    
-}
+    @include prefix('transform-origin', 'right center');
+    @include prefix('transform', 'translate3d(100vw,0,0) rotateY(180deg)');
 
+}
