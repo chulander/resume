@@ -1,0 +1,33 @@
+$chu-font-color: rgb(255, 255, 255);
+
+.chu-font-color {
+	color: $chu-font-color;
+
+}
+
+.chu-font-outline {
+	text-shadow: 1px 1px 1px rgb(119,119,199);
+	@include prefix('font-smoothing', 'antialiased');
+}
+
+.chu-fullscreen-container{
+    width: 100vw;
+    height: 100vh;    
+    position:relative;
+}
+
+.chu-jumbotron {
+    // background-color:white;
+    float:left;
+    margin: 25vh 20vw;
+     //box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    //background: rgba(255,255,255,0.2);
+}
+
+.chu-md-font {
+    font-size:5vw;
+}
+
+.chu-lg-font {
+    font-size:6vw;
+}

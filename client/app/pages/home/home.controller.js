@@ -1,7 +1,7 @@
 
 function HomeCtrl($scope, socials){
-	$scope.socials = socials;
+	
 }
 
-HomeCtrl.$inject = ['$scope', 'socials'];
+HomeCtrl.$inject = ['$scope'];
 module.exports = HomeCtrl;

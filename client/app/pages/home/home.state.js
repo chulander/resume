@@ -4,16 +4,7 @@ function homeState($stateProvider) {
         .state('home', {
             url: '/',
             controller: 'HomeCtrl as homeCtrl',
-            templateUrl: '/app/pages/home/home.html',
-            resolve: {
-                socials: function($http) {
-                    return $http.get('/api/social')
-                        .then(function(res) {
-                            return res.data
-                        });
-                }
-
-            }
+            templateUrl: '/app/pages/home/home.html'
         })
 }
 homeState.$inject = ['$stateProvider'];

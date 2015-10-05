@@ -4,8 +4,16 @@ function keypress() {
         scope: {},
         link: function(scope, elem, attrs) {
             elem.bind('keypress keydown', function(event) {
-                if (event.which === 13) {
-                	
+            	
+                if (event.keyCode === 39) {
+                	event.preventDefault();
+                	//right
+                	console.log('what is event', event);
+                }
+                if (event.keyCode === 37) {
+                	//right
+                	event.preventDefault()
+                	console.log('what is event', event);
                 }
             })
         }

@@ -7,9 +7,8 @@
 @import "../../node_modules/font-awesome/scss/_variables";
 @import "../../node_modules/font-awesome/scss/font-awesome";
 
-$filePath: "../app";
 
-@import "vendor-prefix.scss";
+@import "vendor-prefix";
 @import "../app/common/directives/card/card";
 @import "../app/navbar/navbar";
 @import "../app/pages/experience/experience";
@@ -17,11 +16,13 @@ $filePath: "../app";
 // @import "../app/pages/profile/skill";
 @import "../app/pages/home/home";
 
-
+@import "chu";
 
 .nyc {
     height: 100vh;
     background-image: url('/asset/nyc-wall.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
