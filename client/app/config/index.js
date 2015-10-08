@@ -8,6 +8,7 @@ function appConfig($urlRouterProvider, $locationProvider) {
     		$state.go('profile')
     	})
     	.otherwise('/');
+
 }
 
 appConfig.$inject = ['$urlRouterProvider', '$locationProvider'];

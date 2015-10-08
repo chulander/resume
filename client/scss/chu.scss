@@ -14,20 +14,39 @@ $chu-font-color: rgb(255, 255, 255);
     width: 100vw;
     height: 100vh;    
     position:relative;
+    @include prefix('transition', 'all 2s');
+    background-color: rgba(0,0,0,0.7);
 }
 
+
 .chu-jumbotron {
-    // background-color:white;
     float:left;
     margin: 25vh 20vw;
-     //box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
-    //background: rgba(255,255,255,0.2);
+
 }
 
 .chu-md-font {
-    font-size:5vw;
+    font-size:4vw;
 }
 
 .chu-lg-font {
-    font-size:6vw;
+    font-size:5vw;
+    font-weight:bold;
+}
+
+.chu-button{
+	margin-top: 1%;
+	float:right;
+}	
+
+
+.chu-screen-button {
+	// 
+	//position:absolute;
+	top: 80vh;
+	left:50%;
+	box-sizing: border-box;
+	// @include prefix('transition', 'all 1.5s');
+	color:white;
+	
 }

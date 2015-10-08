@@ -9,20 +9,22 @@
 
 
 @import "vendor-prefix";
-@import "../app/common/directives/card/card";
-@import "../app/navbar/navbar";
-@import "../app/pages/experience/experience";
-@import "../app/pages/profile/profile";
-// @import "../app/pages/profile/skill";
-@import "../app/pages/home/home";
+@import "./shared/card";
+@import "./shared/navbar";
+@import "./components/experience";
+@import "./components/profile";
+@import "./components/skill";
+@import "./components/home";
 
 @import "chu";
 
 .nyc {
     height: 100vh;
+    weight: 100vh;
     background-image: url('/asset/nyc-wall.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-color: rgba(0,0,0,0.2);
 }
 

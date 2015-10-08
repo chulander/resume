@@ -12,9 +12,8 @@ var app = angular.module('app', [
 	require('angular-ui-bootstrap'),
 	require('angular-ui-router'),
 	require('angular-animate'),
-	require('./common').name,
-	require('./navbar').name,
-	require('./pages').name
+	require('./shared').name,
+	require('./components').name
 	])
     .config(require('./config'));
 
