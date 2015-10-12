@@ -1,7 +1,7 @@
-function ResumeCtrl($scope){
+function ResumeController($scope){
   this.title = 'profile check';
 }
 
-ResumeCtrl.$inject = ['$scope'];
+ResumeController.$inject = ['$scope'];
 
-module.exports = ResumeCtrl;
+module.exports = ResumeController;

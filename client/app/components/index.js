@@ -5,5 +5,7 @@ module.exports = angular.module('app.pages', [
         require('./experience').name,
         require('./home').name,
         require('./skill').name,
-        require('./resume').name
+        require('./resume').name,
+        require('./signup').name,
+        require('./login').name
     ])

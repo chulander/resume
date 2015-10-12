@@ -2,5 +2,5 @@
 
 module.exports = angular.module('experience', [
 	 ])
-	.controller('ExperienceCtrl', require('./experience.controller.js'))
+	.controller('ExperienceController', require('./experience.controller.js'))
 	.config(require('./experience.state.js'))

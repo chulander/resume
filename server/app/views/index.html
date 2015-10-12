@@ -2,15 +2,14 @@
 <html lang="en">
 
 <head>
-    <base href="/" />
+    <base href="/"/>
     <title>Bryan Chu's Resume</title>
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <script src="/socket.io-client/socket.io.js"></script>
 </head>
 
 <body keypress class="nyc" ng-app="app">
-    <div ui-view="nav"></div>
-    <!-- <navbar></navbar> -->
+    <div class="chu-nav" ui-view="nav"></div>
     <div class="chu-content" ui-view="content"></div>
     <script src="/script.js"></script>
 </body>

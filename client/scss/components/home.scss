@@ -1,6 +1,136 @@
+.chu-nav {
+      // @include prefix('perspective', '800px');
+    // @include prefix('transform-style', 'preserve-3d');
+    // position: absolute;
+    // left: 0;
+    // right: 0;  
+}
 
-.fade {
-	background: rgba(255,255,255, 1);
+.chu-nav.ng-enter{
+    @include prefix('transition', 'all 0.20s ease-in-out');
+    @include prefix('transform', 'translate3d(0,-5vh,0)');
+}
+
+.chu-nav.ng-enter-active {
+    @include prefix('transform', 'translate3d(0,0,0)');
 }
 
 
+.chu-content {
+    @include prefix('perspective', '800px');
+    @include prefix('transform-style', 'preserve-3d');
+
+    position: absolute;
+    left: 0;
+    right: 0;    
+}
+
+// .chu-content.ng-enter .chu-fullscreen-container,
+// .chu-content.ng-leave .chu-fullscreen-container {
+
+// }
+
+.chu-content.ng-enter{
+    @include prefix('transition', 'all 2s ease-in 1.5s');
+
+    // opacity: 0;
+    // @include prefix('transform', 'scale3d(0, 0, 0.5)');
+    @include prefix('transform', 'translate3d(-100vw,0,0)');
+}
+.chu-content.ng-enter-active {
+    // opacity: 1;
+    //@include prefix('transform', 'scale3d(1, 1, 1)');
+    //@include prefix('transform', 'rotateY(-180deg)');
+    @include prefix('transform', 'translate3d(0, 0, 0)');
+}
+
+.chu-content.ng-leave .chu-fullscreen-container {
+    @include prefix('transition', 'all 1.5s ease-out');
+    // opacity: 1;
+    //@include prefix('transform', 'translate3d(0,0,0)');
+    //background-color: rgba(0,0,0,1);
+}
+
+.chu-content.ng-leave-active {
+    //opacity: 0;
+    // @include prefix('transform-origin', 'right center');
+    //@include prefix('transform', 'translate3d(100vw,100vh,0)');
+    background-color: rgba(0,0,0,0.25);
+}
+
+.chu-content.ng-leave {
+    @include prefix('transition', 'all 2s ease-in-out');
+    opacity:1;
+}
+.chu-content.ng-leave-active .chu-fullscreen-container{
+    opacity:0;
+}
+
+// .chu-content.ng-leave .chu-jumbotron {}
+
+// .chu-content.ng-leave-active .chu-jumbotron {}
+
+.chu-content {
+    background-color: rgba(0, 0, 0, 0.25);
+    height: 100vh;
+    weight: 100vh;
+}
+
+.chu-fullscreen-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    // @include prefix('transition', 'all 2s');
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.chu-jumbotron {
+    float: left;
+    margin: 25vh 20vw;
+}
+
+
+.svg-wrapper {
+  height: 60px;
+    margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+}
+
+.shape {
+  fill: transparent;
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  stroke: #19f6e8;
+}
+
+.text {
+  color: #fff;
+  font-family: 'Roboto Condensed';
+  font-size: 22px;
+  letter-spacing: 8px;
+  line-height: 32px;
+  position: relative;
+  top: -48px;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+  }
+  100% {
+    stroke-dasharray: 760;
+    stroke-dashoffset: 0;
+    stroke-width: 2px;
+  }
+}
+
+.svg-wrapper:hover .shape {
+  -webkit-animation: 0.5s draw linear forwards;
+  animation: 0.5s draw linear forwards;
+}

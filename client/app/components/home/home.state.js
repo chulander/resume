@@ -10,11 +10,11 @@
 
 // module.exports = homeState;
 
-function homeState($stateProvider) {
+function HomeState($stateProvider) {
     $stateProvider
         .state('home', {
             url: '/',
-            controller: 'HomeCtrl as homeCtrl',
+            controller: 'HomeController as homeController',
             views: {
 				content: {
 		        	templateUrl: '/app/components/home/home.html'
@@ -22,6 +22,6 @@ function homeState($stateProvider) {
             }
         })
 }
-homeState.$inject = ['$stateProvider'];
+HomeState.$inject = ['$stateProvider'];
 
-module.exports = homeState;
+module.exports = HomeState;

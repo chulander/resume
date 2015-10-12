@@ -10,20 +10,6 @@ $chu-font-color: rgb(255, 255, 255);
 	@include prefix('font-smoothing', 'antialiased');
 }
 
-.chu-fullscreen-container{
-    width: 100vw;
-    height: 100vh;    
-    position:relative;
-    @include prefix('transition', 'all 2s');
-    background-color: rgba(0,0,0,0.7);
-}
-
-
-.chu-jumbotron {
-    float:left;
-    margin: 25vh 20vw;
-
-}
 
 .chu-md-font {
     font-size:4vw;
@@ -37,6 +23,7 @@ $chu-font-color: rgb(255, 255, 255);
 .chu-button{
 	margin-top: 1%;
 	float:right;
+	margin: 0 0.5%;
 }	
 
 
@@ -48,5 +35,6 @@ $chu-font-color: rgb(255, 255, 255);
 	box-sizing: border-box;
 	// @include prefix('transition', 'all 1.5s');
 	color:white;
+
 	
 }

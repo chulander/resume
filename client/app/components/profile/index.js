@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = angular.module('profile', [])
-	.controller('ProfileCtrl', require('./profile.controller.js'))
+	.controller('ProfileController', require('./profile.controller.js'))
 	.config(require('./profile.state.js'))

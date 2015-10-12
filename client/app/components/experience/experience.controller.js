@@ -1,8 +1,8 @@
 
-function ExperienceCtrl($scope, jobs){
+function ExperienceController($scope, jobs){
 	$scope.jobs = jobs;
 }
 
-ExperienceCtrl.$inject = ['$scope', 'jobs'];
+ExperienceController.$inject = ['$scope', 'jobs'];
 
-module.exports = ExperienceCtrl;
+module.exports = ExperienceController;

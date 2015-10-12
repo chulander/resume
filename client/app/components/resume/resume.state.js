@@ -1,5 +1,5 @@
 //var fs = require('fs');
-function resumeState($stateProvider) {
+function ResumeState($stateProvider) {
     $stateProvider
         .state('resume', {
             url: '/resume',
@@ -9,11 +9,11 @@ function resumeState($stateProvider) {
                 },
                 content: {
                     templateUrl: '/app/components/resume/resume.html',
-                    controller: 'ResumeCtrl as resumeCtrl'
+                    controller: 'ResumeController as resumeController'
                 }
             }
 
         })
 }
-resumeState.$inject = ['$stateProvider'];
-module.exports = resumeState
+ResumeState.$inject = ['$stateProvider'];
+module.exports = ResumeState

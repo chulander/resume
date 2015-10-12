@@ -85,6 +85,10 @@ function buildScript(file, watch) {
     return rebundle();
 }
 
+gulp.task('copy', function() {
+    gulp.src(['./server/app/views/index.html', './server/app/views/favicon.ico'])
+    .pipe(gulp.dest('./public'))
+    })
 
 // Gulp Tasks - CSS
 // ---------------------------------------------------------------
@@ -138,7 +142,7 @@ gulp.task('icons', function() { 
 gulp.task('default', function() {
 
     livereload.listen();
-    gulp.start(['icons', 'buildCSS', 'buildJS']);
+    gulp.start(['icons', 'copy', 'buildCSS', 'buildJS']);
 
     gulp.watch(
         [clientDir + '/**/*.js', serverDir+'/**/*.js', clientDir + '/**/*.html'],

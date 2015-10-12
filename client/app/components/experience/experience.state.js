@@ -1,4 +1,4 @@
-function experienceState($stateProvider) {
+function ExperienceState($stateProvider) {
     $stateProvider
         .state('experience', {
             url: '/experience',
@@ -8,7 +8,7 @@ function experienceState($stateProvider) {
                 },
                 content: {
                     templateUrl: '/app/components/experience/experience.html',
-                    controller: 'ExperienceCtrl as experienceCtrl'
+                    controller: 'ExperienceController as experienceController'
                 }
             },
             resolve: {
@@ -23,6 +23,6 @@ function experienceState($stateProvider) {
 
         })
 }
-experienceState.$inject = ['$stateProvider'];
+ExperienceState.$inject = ['$stateProvider'];
 
-module.exports = experienceState
+module.exports = ExperienceState

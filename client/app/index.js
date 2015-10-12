@@ -13,9 +13,9 @@ var app = angular.module('app', [
 	require('angular-ui-router'),
 	require('angular-animate'),
 	require('./shared').name,
-	require('./components').name
+	require('./components').name,
+	require('./config').name
 	])
-    .config(require('./config'));
 
 //console.log('yo name' , require('./navbar').name);
 

@@ -1,4 +1,4 @@
-function HomeCtrl($scope, $element) {
+function HomeController($scope, $element) {
 	console.log('what is element', $element);
 	$scope.fade = false;
 	$scope.switchPage = function(){
@@ -17,5 +17,5 @@ function HomeCtrl($scope, $element) {
 	
 }
 
-HomeCtrl.$inject = ['$scope', '$element'];
-module.exports = HomeCtrl;
+HomeController.$inject = ['$scope', '$element'];
+module.exports = HomeController;

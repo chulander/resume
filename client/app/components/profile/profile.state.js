@@ -1,15 +1,15 @@
 //var fs = require('fs');
-function profileState($stateProvider) {
+function ProfileState($stateProvider) {
    $stateProvider
         .state('profile', {
             url: '/profile',
             views: {
                 nav: {
-                    template: '<navbar></navbar>'
+                    template: '<navbar id="chu-nav"></navbar>'
                 },
                 content: {
                     templateUrl: '/app/components/profile/profile.html',
-                    controller: 'ProfileCtrl as profileCtrl'
+                    controller: 'ProfileController as profileController'
                 }
             },
             resolve: {
@@ -22,8 +22,8 @@ function profileState($stateProvider) {
             }
         })
 }
-profileState.$inject = ['$stateProvider'];
-module.exports = profileState
+ProfileState.$inject = ['$stateProvider'];
+module.exports = ProfileState
 
 
 
