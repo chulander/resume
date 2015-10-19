@@ -3,8 +3,11 @@ function HomeController($scope, $element) {
 	$scope.fade = false;
 	$scope.switchPage = function(){
 		console.log('are you clicking?');
-		this.fade = true;
+		this.clickButton = true;
 	}
+	var job= 'Full Stack Engineer';
+	$scope.letters = job;
+	$scope.clickButton = false;
 	// console.log('running?');
 	// $scope.scrollTo = function(id) {
 	// 	var elem = angular.element(document.getElementById(id));

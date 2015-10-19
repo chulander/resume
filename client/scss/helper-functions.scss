@@ -1,0 +1,42 @@
+@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+    @if $vendors {
+        @each $vendor in $vendors {
+            #{"-" + $vendor + "-" + $property}: #{$value};
+        }
+    }
+    #{$property}: #{$value};
+}
+
+@function createSequence($iterationTotal, $timeIncrement) {
+    $time: 0;
+    $list: ();
+    @for $i from 0 through $iterationTotal {
+        $list: append($list, 'a'+$i $time, 'comma');
+        $time: $timeIncrement * $i;
+    }
+    @return $list;
+}
+
+clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+
+/* start commented backslash hack \*/
+
+* html .clearfix {
+    height: 1%;
+}
+
+.clearfix {
+    display: block;
+}

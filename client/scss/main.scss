@@ -8,28 +8,17 @@
 @import "../../node_modules/font-awesome/scss/font-awesome";
 
 
-@import "vendor-prefix";
+@import "helper-functions";
+@import "globals";
+
+
+
 @import "./shared/card";
 @import "./shared/navbar";
+@import "./shared/animate";
 @import "./components/experience";
 @import "./components/profile";
 @import "./components/skill";
 @import "./components/home";
 
-@import "chu";
-
-.nyc {
-    height: 100vh;
-    weight: 100vh;
-    background-image: url('/asset/nyc-wall.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.layer{
-	background-color: rgba(0,0,0,1);
-	height: 100vh;
-    weight: 100vh;
-}
-
+// @import "../../node_modules/animate.scss/animate/bounce";

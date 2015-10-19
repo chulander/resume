@@ -1,15 +1,12 @@
-<!-- <a class="chu-screen-button" ng-click="scrollTo('foo')"><i class="fa fa-hand-o-down fa-5x"></i></a> -->
 <div class="chu-fullscreen-container">
-    <div class="chu-jumbotron">
-        <div class="svg-wrapper">
-            <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
-                <rect class="shape" height="60" width="320" />
-            </svg>
-            <div class="text">HOVER</div>
-        </div>
+    <div class="chu-jumbotron clearfix">
         <div class="chu-md-font chu-font-color chu-font-outline text-center">Hi, I'm Bryan Chu</div>
-        <div class="chu-lg-font chu-font-color chu-font-outline text-center">Full Stack Developer</div>
-        <a ui-sref='profile' ng-click="switchPage()" class="btn btn-primary btn-lg chu-button">What to learn more?</a>
-        <a ui-sref='profile' ng-click="switchPage()" class="btn btn-info btn-lg chu-button">Contact me?</a>
+        <div class="wrap chu-lg-font chu-font-color chu-font-outline text-center" ng-class="clickButton ? 'animated hinge' : 'animated rubberBand'">
+            Full Stack Engineer
+                <!-- <div ng-repeat="letter in letters track by $index">{{letter}}</div> -->
+
+            
+        </div>
+        <a ui-sref='profile' ng-mouseenter="clickButton=true" ng-mouseleave="clickButton=false" ng-click="switchPage()" ng-class="clickButton ? '' : 'animated pulse infinite'" class="btn btn-primary btn-lg chu-button">What to learn more?</a>
     </div>
 </div>

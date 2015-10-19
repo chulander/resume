@@ -1,136 +1,95 @@
-.chu-nav {
-      // @include prefix('perspective', '800px');
-    // @include prefix('transform-style', 'preserve-3d');
-    // position: absolute;
-    // left: 0;
-    // right: 0;  
-}
-
-.chu-nav.ng-enter{
-    @include prefix('transition', 'all 0.20s ease-in-out');
-    @include prefix('transform', 'translate3d(0,-5vh,0)');
-}
-
-.chu-nav.ng-enter-active {
-    @include prefix('transform', 'translate3d(0,0,0)');
-}
-
-
 .chu-content {
-    @include prefix('perspective', '800px');
-    @include prefix('transform-style', 'preserve-3d');
-
     position: absolute;
     left: 0;
-    right: 0;    
+    right: 0;
+    margin-top: 5%;
+    height: 100vh;
+    width: 100vw;
+    &.ng-enter {
+        @include prefix('transition', 'all 3s ease-in-out');
+        .chu-fullscreen-container {}
+    }
+    &.ng-enter-active {}
+    &.ng-leave {
+        @include prefix('transition', 'all 3s ease-out');
+        .chu-fullscreen-container {
+            // background-color: rgba(0, 0, 0, 1);    
+        }
+    }
 }
 
-// .chu-content.ng-enter .chu-fullscreen-container,
-// .chu-content.ng-leave .chu-fullscreen-container {
+.chu-button {
+    float: right;
+    // @include prefix('transition', 'all 0.2s ease-in-out');
+    // margin: 1 0.5%;
+    // @extend .animated;
+    // @extend .pulse;
+    // @extend .infinite;
 
-// }
-
-.chu-content.ng-enter{
-    @include prefix('transition', 'all 2s ease-in 1.5s');
-
-    // opacity: 0;
-    // @include prefix('transform', 'scale3d(0, 0, 0.5)');
-    @include prefix('transform', 'translate3d(-100vw,0,0)');
-}
-.chu-content.ng-enter-active {
-    // opacity: 1;
-    //@include prefix('transform', 'scale3d(1, 1, 1)');
-    //@include prefix('transform', 'rotateY(-180deg)');
-    @include prefix('transform', 'translate3d(0, 0, 0)');
 }
 
-.chu-content.ng-leave .chu-fullscreen-container {
-    @include prefix('transition', 'all 1.5s ease-out');
-    // opacity: 1;
-    //@include prefix('transform', 'translate3d(0,0,0)');
-    //background-color: rgba(0,0,0,1);
-}
 
-.chu-content.ng-leave-active {
-    //opacity: 0;
-    // @include prefix('transform-origin', 'right center');
-    //@include prefix('transform', 'translate3d(100vw,100vh,0)');
-    background-color: rgba(0,0,0,0.25);
-}
 
-.chu-content.ng-leave {
-    @include prefix('transition', 'all 2s ease-in-out');
-    opacity:1;
-}
-.chu-content.ng-leave-active .chu-fullscreen-container{
-    opacity:0;
+.chu-button:hover {
+    // @extend .chu-lg-font;
+    // border: 1px solid white;
+    // margin-top: -2px;
+    // box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    
+    // background: rgba(255,255,255,0.2);
 }
 
 // .chu-content.ng-leave .chu-jumbotron {}
-
 // .chu-content.ng-leave-active .chu-jumbotron {}
-
-.chu-content {
-    background-color: rgba(0, 0, 0, 0.25);
-    height: 100vh;
-    weight: 100vh;
-}
-
 .chu-fullscreen-container {
     width: 100vw;
     height: 100vh;
     position: relative;
     // @include prefix('transition', 'all 2s');
-    background-color: rgba(0, 0, 0, 0.5);
+    // background-color: rgba(0, 0, 0, 0.5);
 }
 
 .chu-jumbotron {
     float: left;
-    margin: 25vh 20vw;
+    margin: 25vh 25vw;
+    // margin:25% 25%;
 }
 
-
-.svg-wrapper {
-  height: 60px;
-    margin: 0 auto;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 320px;
+.wrap {
+    // @extend .animated;
+    // @extend .flash;
+    div {
+        display: inline;
+    }
 }
 
-.shape {
-  fill: transparent;
-  stroke-dasharray: 140 540;
-  stroke-dashoffset: -474;
-  stroke-width: 8px;
-  stroke: #19f6e8;
+$data: createSequence(19, 0.25);
+$animation-duration: 0.33s;
+@each $div,
+$time in $data {
+    .#{$div} {
+        @include prefix('animation', 'shrinkgrow ' + $animation-duration + ' ease-in-out 2');
+        @include prefix('animation-delay', $animation-duration * $time);
+    }
 }
 
-.text {
-  color: #fff;
-  font-family: 'Roboto Condensed';
-  font-size: 22px;
-  letter-spacing: 8px;
-  line-height: 32px;
-  position: relative;
-  top: -48px;
-}
-
-@keyframes draw {
-  0% {
-    stroke-dasharray: 140 540;
-    stroke-dashoffset: -474;
-    stroke-width: 8px;
-  }
-  100% {
-    stroke-dasharray: 760;
-    stroke-dashoffset: 0;
-    stroke-width: 2px;
-  }
-}
-
-.svg-wrapper:hover .shape {
-  -webkit-animation: 0.5s draw linear forwards;
-  animation: 0.5s draw linear forwards;
+@keyframes shrinkgrow {
+    0% {
+        @include prefix ('transform', 'scale(0)');
+    }
+    12.5% {
+        @include prefix ('transform', 'scale(1)');
+        color: red;
+    }
+    25% {
+        @include prefix ('transform', 'scale(1)');
+        color: red;
+    }
+    33% {
+        @include prefix ('transform', 'scale(1)');
+        color: red;
+    }
+    100% {
+        @include prefix('transform', 'scale(0)');
+    }
 }

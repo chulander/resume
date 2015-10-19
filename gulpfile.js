@@ -4,6 +4,8 @@
 var gulp = require('gulp'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
+    csslint = require('gulp-csslint'),
+    cssScss = require('gulp-css-scss'),
     eslint = require('gulp-eslint'),
     gulpif = require('gulp-if'),
     istanbul = require('gulp-istanbul'),
@@ -24,6 +26,7 @@ var through2 = require('through2');
 var ngannotate = require('browserify-ngannotate');
 var uglifyify = require('uglifyify');
 var _ = require('lodash');
+
 // Browserify Modules
 
 var browserify = require('browserify');
@@ -99,6 +102,7 @@ gulp.task('buildCSS', function() {
         .pipe(sass({
             errLogToConsole: true
         }))
+        .pipe(csslint())
         .pipe(rename('style.css'))
         .pipe(gulp.dest(buildDir));
 });
@@ -107,6 +111,11 @@ gulp.task('reloadCSS', function() {
     return gulp.src(buildDir + '/style.css').pipe(livereload());
 });
 
+gulp.task('convertCssToScss', function(){
+    return gulp.src('./node_modules/animate.css/animate.css')
+        .pipe(cssScss())
+        .pipe(gulp.dest('./client/scss/shared/'))
+    })
 // Gulp Tasks - Client JS
 // ---------------------------------------------------------------
 
@@ -142,7 +151,7 @@ gulp.task('icons', function() { 
 gulp.task('default', function() {
 
     livereload.listen();
-    gulp.start(['icons', 'copy', 'buildCSS', 'buildJS']);
+    gulp.start(['icons', 'copy', 'convertCssToScss', 'buildCSS', 'buildJS']);
 
     gulp.watch(
         [clientDir + '/**/*.js', serverDir+'/**/*.js', clientDir + '/**/*.html'],

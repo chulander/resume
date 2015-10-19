@@ -14,11 +14,11 @@ function HomeState($stateProvider) {
     $stateProvider
         .state('home', {
             url: '/',
-            controller: 'HomeController as homeController',
             views: {
-				content: {
-		        	templateUrl: '/app/components/home/home.html'
-				}            	
+                content: {
+                    controller: 'HomeController as homeController',
+                    templateUrl: '/app/components/home/home.html'                
+                }
             }
         })
 }
