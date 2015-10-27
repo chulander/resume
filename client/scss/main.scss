@@ -12,13 +12,14 @@
 @import "globals";
 
 
-
+@import "./shared/animate";
 @import "./shared/card";
 @import "./shared/navbar";
-@import "./shared/animate";
+@import "./shared/ui-view";
 @import "./components/experience";
 @import "./components/profile";
 @import "./components/skill";
 @import "./components/home";
+
 
 // @import "../../node_modules/animate.scss/animate/bounce";

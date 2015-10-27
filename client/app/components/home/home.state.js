@@ -14,15 +14,9 @@ function HomeState($stateProvider) {
     $stateProvider
         .state('home', {
             url: '/',
-            views: {
-                // nav: {
-                //     template: '<navbar class="chu-nav"></navbar>'
-                // },
-                content: {
-                    controller: 'HomeController as homeController',
-                    templateUrl: '/app/components/home/home.html'                
-                }
-            }
+            controller: 'HomeController as homeController',
+            templateUrl: '/app/components/home/home.html'
+
         })
 }
 HomeState.$inject = ['$stateProvider'];

@@ -1,33 +1,3 @@
-.chu-content {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-top: 5%;
-    // height: 100vh;
-    width: 100vw;
-    &.ng-enter {
-        @include prefix('transition', 'all 1s ease-in-out 2s');
-        
-        .chu-fullscreen-container {}
-    }
-    &.ng-enter-active {
-        @extend .animated;
-        @extend .bounceInLeft;
-    }
-    &.ng-leave {
-        @include prefix('transition', 'all 1s ease-in-out 2s');
-        // @include prefix('transition', 'all 1s ease-out');
-        .chu-fullscreen-container {
-            // background-color: rgba(0, 0, 0, 1);    
-        }
-
-    }
-    &.ng-leave-active {
-        @extend .animated;
-        @extend .bounceOutRight;
-       
-    }
-}
 
 .chu-button {
     float: right;

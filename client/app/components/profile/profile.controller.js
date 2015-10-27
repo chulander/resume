@@ -1,9 +1,11 @@
+function ProfileController($scope, $state, navBarAnimation, socials) {
 
-function ProfileController($scope, socials){
     $scope.socials = socials;
-    console.log('what is socials', socials);
-    
+    if ($state.is('profile')) {
+        navBarAnimation.status = true;
+    }
+
 }
 
-ProfileController.$inject = ['$scope', 'socials'];
+ProfileController.$inject = ['$scope', '$state', 'navBarAnimation', 'socials'];
 module.exports = ProfileController;
