@@ -1,12 +1,10 @@
 <div class="chu-fullscreen-container">
     <div class="chu-jumbotron clearfix">
         <div class="chu-md-font chu-font-color chu-font-outline text-center">Hi, I'm Bryan Chu</div>
-        <div class="wrap chu-lg-font chu-font-color chu-font-outline text-center" ng-class="clickButton ? 'animated hinge' : 'animated rubberBand'">
-            Full Stack Engineer
-                <!-- <div ng-repeat="letter in letters track by $index">{{letter}}</div> -->
-
-            
+        <div class="chu-animate-infinite chu-lg-font chu-font-color chu-font-outline text-center">
+            Full Stack Engineer 
         </div>
-        <a ui-sref='profile' ng-mouseenter="clickButton=true" ng-mouseleave="clickButton=false" ng-click="switchPage()" ng-class="clickButton ? '' : 'animated pulse infinite'" class="btn btn-primary btn-lg chu-button">What to learn more?</a>
+        <a ui-sref='profile' ng-mouseenter="hoverButton=true" ng-mouseleave="hoverButton=false" ng-click="switchPage()" ng-class="hoverButton ? '' : 'animated pulse infinite'" class="btn btn-primary btn-lg chu-button">What to learn more?</a>
     </div>
 </div>
+

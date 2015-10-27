@@ -3,14 +3,17 @@
     position: absolute;
     left: 0;
     right: 0;
+    @include prefix('transition', 'all 5s ease-in-out 3s');
     &.ng-enter {
-        @include prefix('transition', 'all 0.20s ease-in-out 0.20s');
-        @include prefix('transform', 'translate3d(0,-5vh,0)');
+        
+        // @include prefix('transform', 'translate3d(0,-5vh,0)');
     }
     &.ng-enter-active {
-        @include prefix('transform', 'translate3d(0,0,0)');
+        // @include prefix('transform', 'translate3d(0,0,0)');
+        // @extend .animated;
+        // @extend .bounceInDown;
     }
-    .navbar {
-        margin-bottom: 10px;
-    }
+    // .navbar {
+    //     margin-bottom: 10px;
+    // }
 }

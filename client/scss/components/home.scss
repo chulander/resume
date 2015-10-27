@@ -3,32 +3,41 @@
     left: 0;
     right: 0;
     margin-top: 5%;
-    height: 100vh;
+    // height: 100vh;
     width: 100vw;
     &.ng-enter {
-        @include prefix('transition', 'all 3s ease-in-out');
+        @include prefix('transition', 'all 1s ease-in-out 2s');
+        
         .chu-fullscreen-container {}
     }
-    &.ng-enter-active {}
+    &.ng-enter-active {
+        @extend .animated;
+        @extend .bounceInLeft;
+    }
     &.ng-leave {
-        @include prefix('transition', 'all 3s ease-out');
+        @include prefix('transition', 'all 1s ease-in-out 2s');
+        // @include prefix('transition', 'all 1s ease-out');
         .chu-fullscreen-container {
             // background-color: rgba(0, 0, 0, 1);    
         }
+
+    }
+    &.ng-leave-active {
+        @extend .animated;
+        @extend .bounceOutRight;
+       
     }
 }
 
 .chu-button {
     float: right;
-    // @include prefix('transition', 'all 0.2s ease-in-out');
+    // @include prefix('transition', 'all 1s ease-in-out');
     // margin: 1 0.5%;
     // @extend .animated;
     // @extend .pulse;
     // @extend .infinite;
 
 }
-
-
 
 .chu-button:hover {
     // @extend .chu-lg-font;
@@ -43,7 +52,7 @@
 // .chu-content.ng-leave-active .chu-jumbotron {}
 .chu-fullscreen-container {
     width: 100vw;
-    height: 100vh;
+    // height: 100vh;
     position: relative;
     // @include prefix('transition', 'all 2s');
     // background-color: rgba(0, 0, 0, 0.5);

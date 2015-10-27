@@ -1,11 +1,11 @@
 //var fs = require('fs');
 function ProfileState($stateProvider) {
-   $stateProvider
+    $stateProvider
         .state('profile', {
             url: '/profile',
             views: {
                 nav: {
-                    template: '<navbar id="chu-nav"></navbar>'
+                    template: '<navbar class="chu-nav"></navbar>'
                 },
                 content: {
                     templateUrl: '/app/components/profile/profile.html',
@@ -24,6 +24,3 @@ function ProfileState($stateProvider) {
 }
 ProfileState.$inject = ['$stateProvider'];
 module.exports = ProfileState
-
-
-

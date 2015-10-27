@@ -1,13 +1,16 @@
-function HomeController($scope, $element) {
+function HomeController($scope, $element, navBarAnimation) {
 	console.log('what is element', $element);
-	$scope.fade = false;
 	$scope.switchPage = function(){
-		console.log('are you clicking?');
+		console.log('home controller preset, navBarAnimation', navBarAnimation);
 		this.clickButton = true;
+		navBarAnimation.status=!navBarAnimation.status;
+		console.log('home controller post, navBarAnimation', navBarAnimation);
 	}
+	
 	var job= 'Full Stack Engineer';
 	$scope.letters = job;
 	$scope.clickButton = false;
+	$scope.hoverButton = false;
 	// console.log('running?');
 	// $scope.scrollTo = function(id) {
 	// 	var elem = angular.element(document.getElementById(id));
@@ -20,5 +23,5 @@ function HomeController($scope, $element) {
 	
 }
 
-HomeController.$inject = ['$scope', '$element'];
+HomeController.$inject = ['$scope', '$element', 'navBarAnimation'];
 module.exports = HomeController;

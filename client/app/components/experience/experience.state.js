@@ -4,7 +4,7 @@ function ExperienceState($stateProvider) {
             url: '/experience',
             views: {
                 nav: {
-                    template: '<navbar></navbar>'
+                    template: '<navbar class="chu-nav"></navbar>'
                 },
                 content: {
                     templateUrl: '/app/components/experience/experience.html',

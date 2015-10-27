@@ -156,7 +156,7 @@ gulp.task('default', function() {
     gulp.watch(
         [clientDir + '/**/*.js', serverDir+'/**/*.js', clientDir + '/**/*.html'],
         function() {
-            runSeq('lintJS', 'buildJS', 'reload');
+            runSeq('lintJS', 'buildJS', 'copy', 'reload');
         }
     );
 
@@ -168,7 +168,7 @@ gulp.task('default', function() {
     );
 
     gulp.watch(
-        [clientDir + '/**/*.html', serverDir+'/app/views/*.html'], ['reload']
+        [clientDir + '/**/*.html', serverDir+'/app/views/*.html'], ['copy','reload']
     );
 
 
