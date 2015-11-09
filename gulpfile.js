@@ -2,13 +2,10 @@
 
 // Gulp modules.
 var gulp = require('gulp'),
-    babel = require('gulp-babel'),
     concat = require('gulp-concat'),
     csslint = require('gulp-csslint'),
     cssScss = require('gulp-css-scss'),
     eslint = require('gulp-eslint'),
-    gulpif = require('gulp-if'),
-    istanbul = require('gulp-istanbul'),
     livereload = require('gulp-livereload'),
     mocha = require('gulp-mocha'),
     minifyCSS = require('gulp-minify-css'),
@@ -17,7 +14,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    uglify = require('gulp-uglify'),
+    //uglify = require('gulp-uglify'),
     gutil = require('gulp-util'),
     notify = require('gulp-notify');
 
@@ -61,9 +58,8 @@ function buildScript(file, watch) {
 
     var props = {
         entries: [clientDir + '/' + file],
-        debug: true
-        //,transform: [babelify, ngannotate, uglifyify]
-        ,transform: [babelify]
+        debug: true,
+        transform: [babelify, ngannotate, uglifyify]
     };
 
     // watchify() if watch requested, otherwise run browserify() once 

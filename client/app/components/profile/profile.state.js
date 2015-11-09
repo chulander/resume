@@ -4,7 +4,6 @@ function ProfileState($stateProvider) {
             url: '/profile',
             templateUrl: '/app/components/profile/profile.html',
             controller: 'ProfileController as profileController',
-
             resolve: {
                 socials: function($http) {
                     return $http.get('/api/social')
@@ -16,4 +15,4 @@ function ProfileState($stateProvider) {
         })
 }
 ProfileState.$inject = ['$stateProvider'];
-module.exports = ProfileState
+module.exports = /*@ngInject*/ ProfileState;

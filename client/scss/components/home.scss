@@ -1,4 +1,19 @@
 
+.home-state__content {
+    float: left;
+    margin: 25vh 25vw;
+}
+
+.home-state--container {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/asset/macbook_topdown.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
 .chu-button {
     float: right;
     // @include prefix('transition', 'all 1s ease-in-out');
@@ -6,7 +21,6 @@
     // @extend .animated;
     // @extend .pulse;
     // @extend .infinite;
-
 }
 
 .chu-button:hover {
@@ -14,25 +28,9 @@
     // border: 1px solid white;
     // margin-top: -2px;
     // box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
-    
     // background: rgba(255,255,255,0.2);
 }
 
-// .chu-content.ng-leave .chu-jumbotron {}
-// .chu-content.ng-leave-active .chu-jumbotron {}
-.chu-fullscreen-container {
-    width: 100vw;
-    // height: 100vh;
-    position: relative;
-    // @include prefix('transition', 'all 2s');
-    // background-color: rgba(0, 0, 0, 0.5);
-}
-
-.chu-jumbotron {
-    float: left;
-    margin: 25vh 25vw;
-    // margin:25% 25%;
-}
 
 .wrap {
     // @extend .animated;
@@ -42,33 +40,41 @@
     }
 }
 
-$data: createSequence(19, 0.25);
+$data: createSequence(19,
+0.25);
 $animation-duration: 0.33s;
 @each $div,
 $time in $data {
     .#{$div} {
-        @include prefix('animation', 'shrinkgrow ' + $animation-duration + ' ease-in-out 2');
-        @include prefix('animation-delay', $animation-duration * $time);
+        @include prefix('animation',
+        'shrinkgrow ' + $animation-duration + ' ease-in-out 2');
+        @include prefix('animation-delay',
+        $animation-duration * $time);
     }
 }
 
 @keyframes shrinkgrow {
     0% {
-        @include prefix ('transform', 'scale(0)');
+        @include prefix ('transform',
+        'scale(0)');
     }
     12.5% {
-        @include prefix ('transform', 'scale(1)');
+        @include prefix ('transform',
+        'scale(1)');
         color: red;
     }
     25% {
-        @include prefix ('transform', 'scale(1)');
+        @include prefix ('transform',
+        'scale(1)');
         color: red;
     }
     33% {
-        @include prefix ('transform', 'scale(1)');
+        @include prefix ('transform',
+        'scale(1)');
         color: red;
     }
     100% {
-        @include prefix('transform', 'scale(0)');
+        @include prefix('transform',
+        'scale(0)');
     }
 }

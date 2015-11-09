@@ -3,16 +3,8 @@ function ResumeState($stateProvider) {
     $stateProvider
         .state('resume', {
             url: '/resume',
-            views: {
-                nav: {
-                    template: '<navbar></navbar>'
-                },
-                content: {
-                    templateUrl: '/app/components/resume/resume.html',
-                    controller: 'ResumeController as resumeController'
-                }
-            }
-
+            templateUrl: '/app/components/resume/resume.html',
+            controller: 'ResumeController as resumeController'
         })
 }
 ResumeState.$inject = ['$stateProvider'];

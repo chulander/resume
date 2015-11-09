@@ -10,10 +10,14 @@ var schema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Address'
     },
-    position: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Position'
-    }],
+    title: {
+        type: String,
+        require: true
+    },
+    position: {
+        type: String,
+        required: true
+    },
     startDate: {
         type: Date,
         required: true

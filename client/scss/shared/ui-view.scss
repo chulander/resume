@@ -1,0 +1,72 @@
+.chu-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    // margin-top: 5%;
+    // height: 100vh;
+    &.ng-enter {
+        // @include prefix('animation', 'bounceInLeft all .25s ease-in 3s');
+        @include prefix('animation-duration', '.5s');
+        // @include prefix('animation-iteration-count', '2');
+        // @include prefix('animation-delay', '.5s');
+        &>.home-state--container {
+            @extend .animated;
+            @extend .fadeIn;
+        }
+        & .home-state__content {
+            @extend .animated;
+            @extend .slideInLeft;
+        }
+        &>.profile-state--container {
+            @extend .animated;
+            @extend .fadeIn;
+        }
+        & .profile-state__content {
+            @extend .animated;
+            @extend .slideInLeft;
+        }
+        &>.experiences-state--container {
+            @extend .animated;
+            @extend .fadeIn;
+        }
+        & .experiences-state__content {
+            @extend .animated;
+            @extend .slideInLeft;
+        }
+    }
+    &.ng-enter-active {
+        // @extend .animated;
+        // @extend .lightSpeedIn;
+    }
+    &.ng-leave {
+        @include prefix('animation-duration', '.5s');
+        &>.home-state--container {
+            @extend .animated;
+            @extend .fadeOut;
+        }
+        & .home-state__content {
+            @extend .animated;
+            @extend .fadeOutDown;
+        }
+        &>.profile-state--container {
+            @extend .animated;
+            @extend .fadeOut;
+        }
+        & .profile-state__content {
+            @extend .animated;
+            @extend .fadeOutDown;
+        }
+        &>.experiences-state--container {
+            @extend .animated;
+            @extend .fadeOut;
+        }
+        & .experiences-state__content {
+            @extend .animated;
+            @extend .fadeOutDown;
+        }
+    }
+    &.ng-leave-active {
+        // @extend .animated;
+        // @extend .fadeOutDown;
+    }
+}

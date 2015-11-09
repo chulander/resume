@@ -6,11 +6,11 @@ function filterDate($filter) {
 
         var _date = $filter('date')(new Date(input), 'MMM yy');
 
-        return _date.toUpperCase();
+        return _date;
 
     };
 }
 
 filterDate.$inject = ['$filter'];
 
-module.exports = filterDate;
+module.exports = /*@ngInject*/ filterDate;

@@ -23,5 +23,5 @@ function navbar(navBarAnimation) {
     }
 }
 
-module.$inject = ['navBarAnimation'];
+navbar.$inject = ['navBarAnimation'];
 module.exports = navbar;

@@ -6,3 +6,17 @@
 .page-header {
     border-bottom: 1px solid rgb(255,255,255);    
 }
+
+.profile-state--container {
+    background-image: url('/asset/macbook_worker.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position:relative;
+
+
+}
+
+

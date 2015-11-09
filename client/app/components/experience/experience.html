@@ -1,9 +1,0 @@
-<div class="experience container">
-    <div class="page-header">
-        <h3 id="timeline">Timeline</h1>
-    </div>
-    <ul class="timeline">
-    	<li ng-repeat="j in jobs" ng-class="{test: $index % 2 == 0}">{{j.a}}</li>
-        <li ng-class="{'timeline-inverted': $index % 2==1}" event ng-repeat="job in jobs | orderBy:'endDate':true " job="job"></li>
-    </ul>
-</div>

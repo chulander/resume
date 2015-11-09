@@ -1,0 +1,19 @@
+<div class="experiences_state container">
+    <div class="page-header">
+        <h1 class="text-center chu-font-color chu-font-outline">Work Experience</h1>
+    </div>
+    <div class="container">
+        <ul class="experience_state__timeline">
+            <li class="experience_state__timeline__item chu-font-color chu-font-outline" ng-class="{'experience_state__timeline__item-inverted': $index % 2==1}" ng-repeat="job in jobs | orderBy:'endDate':true " job="job">
+                <div my-modal name="bryan" content="{{job}}" use-ctrl="ExperiencesModalController as experienceModalController" class="experience_state__timeline__item__panel">
+                    <h3 class="experience_state__timeline__item__panel-title">{{job.company}} - {{job.title}}</h3>
+                    <span class="experience_state__timeline__item__panel-position">{{job.position}}</span>
+                    <p class="experience_state__timeline__item__panel-date">{{job.startDate | date: 'MMM yyyy'}} - {{job.endDate | date: 'MMM yyyy'}}</span>
+                </div>
+                <div class="experience_state__timeline__item__badge" ng-model=model.invert>
+                    <span>{{job.startDate | date: 'yyyy'}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
