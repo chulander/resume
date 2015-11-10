@@ -9,11 +9,11 @@
         @include prefix('animation-duration', '.5s');
         // @include prefix('animation-iteration-count', '2');
         // @include prefix('animation-delay', '.5s');
-        &>.home-state--container {
+        &>.home_state__content_container {
             @extend .animated;
             @extend .fadeIn;
         }
-        & .home-state__content {
+        & .home_state__content {
             @extend .animated;
             @extend .slideInLeft;
         }
@@ -40,11 +40,11 @@
     }
     &.ng-leave {
         @include prefix('animation-duration', '.5s');
-        &>.home-state--container {
+        &>.home_state__content_container {
             @extend .animated;
             @extend .fadeOut;
         }
-        & .home-state__content {
+        & .home_state__content_container {
             @extend .animated;
             @extend .fadeOutDown;
         }

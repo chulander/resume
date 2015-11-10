@@ -1,17 +1,102 @@
-
-.home-state__content {
-    float: left;
-    margin: 25vh 25vw;
+.home_state--background {
+    background-image: url('/asset/macbook_topdown.jpg');
 }
 
-.home-state--container {
-    height: 100vh;
-    width: 100vw;
-    background-image: url('/asset/macbook_topdown.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+.home_state {
+    border: 2px black solid;
+    float: left;
+        //margin: 25vh 25vw;
+        a {
+            @include prefix('transition',
+            'transform 5s ease-in-out');
+        }
+    .home_state__content {
+        
+    }
+}
+
+.float {
+    float: left;
+}
+//select the parent with a specific child
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.1);
+    &.home_state__content_container__content {}
+}
+
+.wrap {
+    perspective: 30vw;
+    perspective-origin: 50% 5vw;
+}
+
+.cube {
     position: relative;
+    width: 200px;
+    transform-style: preserve-3d;
+    animation: spin 15s infinite linear;
+}
+
+.cube div {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: blue;
+}
+
+.back {
+    transform: translateZ(-100px) rotateY(180deg);
+}
+
+.right {
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right;
+}
+
+.left {
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: center left;
+}
+
+.top {
+    transform: rotateX(-90deg) translateY(-100px);
+    transform-origin: top center;
+}
+
+.bottom {
+    transform: rotateX(90deg) translateY(100px);
+    transform-origin: bottom center;
+}
+
+.front {
+    transform: translateZ(100px);
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    font-size: 10px;
+    color: white;
+    line-height: 100px;
+    text-align: center;
+    background: red;
+}
+
+// .modal-content{
+//     background-color: rgba(0,0,0,0);
+// }
+.chu_button--expand {
+    @include prefix('transform',
+    'scale(5,10)');
 }
 
 .chu-button {
@@ -29,15 +114,6 @@
     // margin-top: -2px;
     // box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
     // background: rgba(255,255,255,0.2);
-}
-
-
-.wrap {
-    // @extend .animated;
-    // @extend .flash;
-    div {
-        display: inline;
-    }
 }
 
 $data: createSequence(19,

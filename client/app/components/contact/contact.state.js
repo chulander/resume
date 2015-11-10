@@ -5,8 +5,8 @@ function ContactState($stateProvider) {
             url: '/contact',
             // templateUrl: '/app/components/contact/contact.html',
             // controller: 'ContactController as contactControler',
-            onEnter: function( $stateParams, $state, $modal) {
-                $modal.open({
+            onEnter: function( $stateParams, $state, $uibModal) {
+                $uibModal.open({
                     templateUrl: '/app/components/contact/contact.html',
                     resolve: {
                         item: function() {

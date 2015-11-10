@@ -7,7 +7,7 @@ function navbar(navBarAnimation) {
             
         //     // console.log('what is navbar', navBarAnimation);
         // },
-        link: function(scope, element, attrs) {
+        link: function(scope, element) {
             //this is for the hamburger responsive icon
             //scope.navBarAnimation = navBarAnimation;
             scope.spans = new Array(3);
