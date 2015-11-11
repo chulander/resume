@@ -1,8 +1,10 @@
 
 function ExperiencesController($scope, $state, navBarAnimation, jobs){
-	 if ($state.is('experiences')) {
-        navBarAnimation.status = true;
-    }
+	 $scope.navBarAnimation=navBarAnimation;
+	 // if ($state.is('experiences')) {
+  //       navBarAnimation.status = true;
+  //       // navBarAnimation.background = 'experiences_state--background';
+  //   }
 	$scope.jobs = jobs;
 	console.log('what is jobs', jobs);
 	

@@ -2,71 +2,68 @@
     position: absolute;
     left: 0;
     right: 0;
-    // margin-top: 5%;
-    // height: 100vh;
     &.ng-enter {
-        // @include prefix('animation', 'bounceInLeft all .25s ease-in 3s');
-        @include prefix('animation-duration', '.5s');
-        // @include prefix('animation-iteration-count', '2');
-        // @include prefix('animation-delay', '.5s');
-        &>.home_state__content_container {
+        @include prefix('animation-duration', '1s');        
+        
+        &>.home_state {
             @extend .animated;
             @extend .fadeIn;
         }
-        & .home_state__content {
+        // & .home_state__content {
+        //     @extend .animated;
+        //     @extend .slideInLeft;
+        //}
+        &>.profile_state {
             @extend .animated;
-            @extend .slideInLeft;
+            @extend .fadeInLeftBig;
         }
-        &>.profile-state--container {
+        // & .profile_state__content {
+        //     // @extend .animated;
+        //     // @extend .slideInLeft;
+        // }
+        &>.experiences_state {
             @extend .animated;
-            @extend .fadeIn;
+            @extend .zoomInLeft;
         }
-        & .profile-state__content {
+        &>.contract_state{
             @extend .animated;
-            @extend .slideInLeft;
+            @extend .flipInX;
         }
-        &>.experiences-state--container {
-            @extend .animated;
-            @extend .fadeIn;
-        }
-        & .experiences-state__content {
-            @extend .animated;
-            @extend .slideInLeft;
-        }
-    }
-    &.ng-enter-active {
-        // @extend .animated;
-        // @extend .lightSpeedIn;
+        // & .experiences_state__content {
+        //     @extend .animated;
+        //     @extend .slideInLeft;
+        // }
     }
     &.ng-leave {
-        @include prefix('animation-duration', '.5s');
-        &>.home_state__content_container {
+        @include prefix('animation-duration', '1s');
+        &>.home_state {
             @extend .animated;
-            @extend .fadeOut;
+            @extend .fadeOutRight;
         }
-        & .home_state__content_container {
+        // & .home_state__content {
+        //     // @extend .animated;
+        //     // @extend .fadeOutDown;
+        // }
+        &>.profile_state {
             @extend .animated;
-            @extend .fadeOutDown;
+            @extend .fadeOutDownBig;
         }
-        &>.profile-state--container {
+        // & .profile_state__content {
+        //     @extend .animated;
+        //     @extend .fadeOutDown;
+        // }
+        &>.experiences_state {
             @extend .animated;
-            @extend .fadeOut;
+            @extend .zoomOutRight;
         }
-        & .profile-state__content {
+        &>.contact_state{
             @extend .animated;
-            @extend .fadeOutDown;
+            @extend .flipOutX;
         }
-        &>.experiences-state--container {
-            @extend .animated;
-            @extend .fadeOut;
-        }
-        & .experiences-state__content {
-            @extend .animated;
-            @extend .fadeOutDown;
-        }
-    }
-    &.ng-leave-active {
-        // @extend .animated;
-        // @extend .fadeOutDown;
+        // & .experiences_state__content {
+        //     @extend .animated;
+        //     @extend .fadeOutDown;
+        // }
     }
 }
+

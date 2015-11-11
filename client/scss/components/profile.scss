@@ -1,22 +1,124 @@
-.stylish-panel {
-    padding: 20px 0;
-    text-align: center;
-}
-
-.page-header {
-    border-bottom: 1px solid rgb(255,255,255);    
-}
-
-.profile-state--container {
-    background-image: url('/asset/macbook_worker.jpg');
-    min-height: 100vh;
-    width: 100%;
+.profile_state--background {
+    background-image: url('/asset/macbook_topdown.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    position:relative;
+    @extend .animated;
+    @extend .fadeIn;
+}
 
+.profile_state {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    .profile_state__content {
+        margin-top: 25vh;
+        .profile_state__content__panel {
+            padding: 20px 0;
+            text-align: center;
+        }
+    }
+    .page-header {
+        border-bottom: 1px solid rgb(255, 255, 255);
+    }
+    .jumbotron {
+        @include prefix('transition', 'width height margin 1s ease-in-out');
+        background-color: $chu_background--color--fade;
+        margin: 30px auto;
+        // &:hover {
+        //     width: 200px;
+        //     height: 200px;
+        // }
+    }
+    
+}
+
+//bootstrap jumbotron overides
+
+.cube {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    font-size:20px;
+    margin: 0 auto 100px;
+    @include prefix('perspective', '1200px');
+}
+
+.cube__content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    @include prefix('transform-style', 'preserve-3d');
+    @include prefix('transform', 'translateZ(-250px)');
+}
+
+.cube__content:hover{
+    @include prefix('animation-play-state', 'paused');
+}
+
+.cube__content__item {
+ display: block;
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      // width: 196px;
+      // height: 196px;
+      //border: 2px solid black;
+      line-height: 500px;
+      font-size: 40px;
+      font-weight: bold;
+      color: red;
+      text-align: center;
+      background-color: $chu_background--color--fade;
 
 }
 
+.cube__content__item.front {
+    @include prefix('transform', 'translateZ( 250px )'); 
+}
+
+.cube__content__item.back {
+    @include prefix('transform', 'rotateX( -180deg ) translateZ( 250px )');
+}
+
+.cube__content__item.right {
+    @include prefix('transform', 'rotateY( 90deg ) translateZ( 250px )');
+}
+
+.cube__content__item.left {
+    @include prefix('transform', 'rotateY( -90deg ) translateZ( 250px )');
+}
+
+.cube__content__item.top {
+    @include prefix('transform', 'rotateX(  90deg ) translateZ( 250px )');
+}
+
+.cube__content__item.bottom {
+    @include prefix('transform', 'rotateX( -90deg ) translateZ( 250px )');
+}
+
+.cube__content--spinning{
+    @include prefix('animation', 'spinCubeWebkit 6s linear infinite');
+    @include prefix('animation', 'spinCubeMoz 6s linear infinite');
+    @include prefix('animation', 'spinCubeO 6s linear infinite');
+    @include prefix('animation', 'spinCube 6s linear infinite');
+}
+
+@-webkit-keyframes spinCubeWebkit {
+    0% { @include prefix('transform', 'translateZ(-250px) rotateX(0deg) rotateY(0deg)');}
+    100% {@include prefix('transform', 'translateZ(-250px) rotateX(360deg) rotateY(360deg)');}
+}
+
+@-moz-keyframes spinCubeMoz {
+    0% {@include prefix('transform', 'translateZ(-250px) rotateX(0deg) rotateY(0deg)');}
+    100% {@include prefix('transform', 'translateZ(-250px) rotateX(360deg) rotateY(360deg)');}
+}
+@-o-keyframes spinCubeO {
+    0% {@include prefix('transform', 'translateZ(-250px) rotateX(0deg) rotateY(0deg)');}
+    100% {@include prefix('transform', 'translateZ(-250px) rotateX(360deg) rotateY(360deg)');}
+}
+@keyframes spinCube {
+    0% {@include prefix('transform', 'translateZ(-250px) rotateX(0deg) rotateY(0deg)');}
+    100% {@include prefix('transform', 'translateZ(-250px) rotateX(360deg) rotateY(360deg)');}
+}
 

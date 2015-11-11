@@ -1,6 +1,7 @@
 function navBarAnimation (){
 	return {
-		status: false
+		status: false,
+		navBarSroll: false
 	}
 }
 

@@ -10,12 +10,8 @@ function MyModal($uibModal) {
         },
         link: function(scope, element, attrs) {
 
-            console.log('Attrs: ', attrs);
-//            console.log('SCOPE: ', scope);Z
-            
             scope.open = function(){
 
-                console.log('scope open content', scope.content);
                 var modalInstance = $uibModal.open({
                     templateUrl: '/app/shared/directives/modal/modal.html',
                     controller:  scope.useCtrl,

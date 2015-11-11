@@ -1,0 +1,19 @@
+.contact_state--background {
+    background-image: url('/asset/phone.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    @extend .animated;
+    @extend .fadeIn;
+}
+
+.contact_state {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    .contact_state__content {
+        margin-top: 25vh;
+        
+    }
+    
+}

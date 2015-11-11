@@ -11,7 +11,10 @@ function ExperiencesState($stateProvider) {
                             return res.data
                         });
                 }
-
+            },
+            onEnter: function(navBarAnimation) {
+                navBarAnimation.background = 'experiences_state--background';
+                navBarAnimation.status = true;
             }
 
         })

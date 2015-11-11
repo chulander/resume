@@ -1,0 +1,9 @@
+<div class="home_state__content">
+    <div class="chu_font chu_font--lg  chu_font--outline text-center">{{content.name}}</div>
+    <div class="chu_font chu_font--md  chu_font--outline text-center">
+        {{content.title}}
+    </div>
+    <button ng-mouseenter="hoverButton=true" ng-mouseleave="hoverButton=false" ng-click="ok()" ng-class="{'animated pulse infinite 3s': !hoverButton}" class="chu_font chu_font--outline btn btn-primary btn-lg home_state__content__button">{{content.question}}</button>
+
+</div>
+

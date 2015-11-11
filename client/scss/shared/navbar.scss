@@ -1,37 +1,97 @@
-
 nav {
-    position: relative;
-    &.navbar{
-        margin-bottom:0;
+    @include prefix('background', '1s ease-in-out');
+    &.navbar {
+        margin-bottom: 0;
     }
     // left: 0;
-    // right: 0;
-    &.ng-hide {
-        
-    }
+    // rFight: 0;
+    &.ng-hide {}
     &.ng-hide-add {
-        // @include prefix('transition', 'all 0.1s ease-out');
+        
         @include prefix('animation-duration', '0.5s');
         @include prefix('animation-delay', '1s');
-     
         @extend .animated;
         @extend .zoomOut;
-        // @include prefix('transform', 'translate3d(0,-5vh,0)');
+        
     }
-
     &.ng-hide-remove {
-        // @include prefix('transform', 'translate3d(0,0,0)');
-        // @include prefix('transition', 'all 0.25s ease-in');
+        
         @include prefix('animation-duration', '0.5s');
         // @include prefix('animation-delay', '1s');
         @extend .animated;
         @extend .slideInDown;
     }
- 
+}
+
+
+
+.navbar--relative{
+     @include prefix('animation-duration', '0.1s');
+         
+        background-color:rgba(0,0,0,0);
+        border-color:rgba(0,0,0,0);
+        font-weight: bold;
+        position: relatve;
+        z-index: auto;
+    &.navbar--relative-add{
+        @extend .animated;
+        @extend .fadeInDown;
+    }
+    // &.navbar--relative-remove{
+    //     @extend .animated;
+    //     @extend .fadeOutUp;
+    // }
+}
+
+.navbar--fixed{
+     @include prefix('animation-duration', '0.1s');
+      
+        background-color:rgba(0,0,0,1);
+        border-color:rgba(0,0,0,1);
+        font-weight: bold;
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        z-index:10;
+    &.navbar--fixed-add{
+        @extend .animated;
+        @extend .fadeInDown;
+    }
+    // &.navbar--fixed-remove{
+    //     @extend .animated;
+    //     @extend .fadeOutUp;
+    // }
 }
 
 .navbar--hidden {
     visibility: hidden;
     font: 25px;
     opacity: 0;
+}
+
+.navbar-default {
+    @include prefix('transition', 'border 1s ease-in-out');
+}
+
+.navbar-default .navbar-brand:hover {
+    border: 2px white solid;
+    color:white;
+}
+
+
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > .active > a:hover{
+    background-color: rgba(100,100,100,0.4);    
+    text-decoration: underline;
+ }
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-default .navbar-nav > .active > a {
+    color: red;
 }

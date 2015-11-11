@@ -1,0 +1,23 @@
+<!-- <section class="cube">
+    <div class="cube__content cube__content--spinning">
+        <figure class="cube__content__item front">?</figure>
+        <figure class="cube__content__item back">?</figure>
+        <figure class="cube__content__item right">?</figure>
+        <figure class="cube__content__item left">?</figure>
+        <figure class="cube__content__item top">?</figure>
+        <figure class="cube__content__item bottom">?</figure>
+    </div>
+</section>
+
+ -->
+
+ <section class="cube">
+    <div class="cube__content cube__content--spinning">
+        <figure ng-repeat="item in items | orderBy : item" ng-if="item !='home'" class="cube__content__item {{cubeSides[$index]}}">{{item}}</figure>
+
+    </div>
+</section>
+
+
+
+ 

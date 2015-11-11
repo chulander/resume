@@ -5,15 +5,12 @@ function ContactState($stateProvider) {
             url: '/contact',
             // templateUrl: '/app/components/contact/contact.html',
             // controller: 'ContactController as contactControler',
-            onEnter: function( $stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: '/app/components/contact/contact.html',
-                    resolve: {
-                        item: function() {
-                            return '123';
-                        }
-                    },
-                    controller: 'ContactController as contactControler'
+            onEnter: function( $stateParams, $state, $uibModal, navBarAnimation) {
+                navBarAnimation.background = 'contact_state--background';
+                navBarAnimation.status = true;
+                var modalInstance = $uibModal.open({
+                    templateUrl: '/app/components/contact/contact.modal.html',
+                    controller: 'ContactController as contactController'
                 }).result.finally(function() {
                     $state.go('^');
                 });

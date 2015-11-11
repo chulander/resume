@@ -1,35 +1,43 @@
-function HomeController($scope, $state, navBarAnimation, content, $uibModalInstance) {
+function HomeController($scope, navBarAnimation, content, $uibModalInstance) {
     // $scope.clickButton = false;
 
-    if ($state.is('home')) {
-        navBarAnimation.status = false;
-        navBarAnimation.background = 'home_state--background';
-        $scope.content = content;
-
-    }
-    // $scope.switchPage = function() {
+    
         
-    // }
-    console.log('what is the status', navBarAnimation.status);
-    // var job = 'Full Stack Engineer';
-    // $scope.letters = job;
+    $scope.content = content;
 
+
+    
+    console.log('what is the status', navBarAnimation.status);
+    
 
     $scope.dismiss = function() {
         $uibModalInstance.dismiss('cancel');
     };
 
     $scope.ok = function() {
-        this.clickButton = true;
         navBarAnimation.status = true;
 
-        $uibModalInstance.close(true);
-        
+        $uibModalInstance.close(navBarAnimation);
         
 
     };
 
+    $scope.$on('animationstart', function(t){
+        console.log('home animation start', t);
+    })
+
+    $scope.$on('webkitAnimationstart', function(t){
+        console.log('home animation start-web', t);
+    })
+ 
+    $scope.$on('webkitAnimationend', function(t){
+        console.log('home animation done-web', t);
+    })
+
+    $scope.$on('animationend', function(t){
+        console.log('home animation done', t);
+    })
 }
 
-HomeController.$inject = ['$scope', '$state', 'navBarAnimation', 'content', '$uibModalInstance'];
-module.exports = HomeController;
+HomeController.$inject = ['$scope', 'navBarAnimation', 'content', '$uibModalInstance'];
+module.exports = /*@ngInject*/ HomeController;

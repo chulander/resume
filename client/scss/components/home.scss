@@ -1,156 +1,47 @@
+angular-ui modal animation OVERRIDE
+.modal.fade,
+.modal-dialog {
+    @include prefix('transition', 'none');
+    // &.in-remove {
+    //     @include prefix('animation', 'fadeOutX 1.5s');
+    // }
+}
+
+.modal.fade.modal-backdrop.in {
+    @include prefix('transition', 'opacity 1s ease-in-out');
+    opacity: 0.50;
+}
+
+
+
+//select the parent with a specific child
+.modal-content {
+    background-color: rgba(0, 0, 0, 0);
+    @include prefix('box-shadow',
+    'none');
+    border: none;
+    &.home_state__content {}
+}
+
+
 .home_state--background {
     background-image: url('/asset/macbook_topdown.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .home_state {
-    border: 2px black solid;
-    float: left;
-        //margin: 25vh 25vw;
-        a {
-            @include prefix('transition',
-            'transform 5s ease-in-out');
-        }
-    .home_state__content {
-        
-    }
-}
-
-.float {
-    float: left;
-}
-//select the parent with a specific child
-.modal-content {
-    background-color: rgba(0, 0, 0, 0.1);
-    &.home_state__content_container__content {}
-}
-
-.wrap {
-    perspective: 30vw;
-    perspective-origin: 50% 5vw;
-}
-
-.cube {
+    height: 100vh;
+    width: 100vw;
     position: relative;
-    width: 200px;
-    transform-style: preserve-3d;
-    animation: spin 15s infinite linear;
-}
-
-.cube div {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: blue;
-}
-
-.back {
-    transform: translateZ(-100px) rotateY(180deg);
-}
-
-.right {
-    transform: rotateY(-270deg) translateX(100px);
-    transform-origin: top right;
-}
-
-.left {
-    transform: rotateY(270deg) translateX(-100px);
-    transform-origin: center left;
-}
-
-.top {
-    transform: rotateX(-90deg) translateY(-100px);
-    transform-origin: top center;
-}
-
-.bottom {
-    transform: rotateX(90deg) translateY(100px);
-    transform-origin: bottom center;
-}
-
-.front {
-    transform: translateZ(100px);
-}
-
-@keyframes spin {
-    from {
-        transform: rotateY(0);
+    button {}
+    .home_state__content {
+        float: left;
     }
-    to {
-        transform: rotateY(360deg);
-    }
-}
 
-.circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-    font-size: 10px;
-    color: white;
-    line-height: 100px;
-    text-align: center;
-    background: red;
 }
-
-// .modal-content{
-//     background-color: rgba(0,0,0,0);
-// }
-.chu_button--expand {
-    @include prefix('transform',
-    'scale(5,10)');
-}
-
-.chu-button {
+button.home_state__content__button {
     float: right;
-    // @include prefix('transition', 'all 1s ease-in-out');
-    // margin: 1 0.5%;
-    // @extend .animated;
-    // @extend .pulse;
-    // @extend .infinite;
-}
-
-.chu-button:hover {
-    // @extend .chu-lg-font;
-    // border: 1px solid white;
-    // margin-top: -2px;
-    // box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
-    // background: rgba(255,255,255,0.2);
-}
-
-$data: createSequence(19,
-0.25);
-$animation-duration: 0.33s;
-@each $div,
-$time in $data {
-    .#{$div} {
-        @include prefix('animation',
-        'shrinkgrow ' + $animation-duration + ' ease-in-out 2');
-        @include prefix('animation-delay',
-        $animation-duration * $time);
-    }
-}
-
-@keyframes shrinkgrow {
-    0% {
-        @include prefix ('transform',
-        'scale(0)');
-    }
-    12.5% {
-        @include prefix ('transform',
-        'scale(1)');
-        color: red;
-    }
-    25% {
-        @include prefix ('transform',
-        'scale(1)');
-        color: red;
-    }
-    33% {
-        @include prefix ('transform',
-        'scale(1)');
-        color: red;
-    }
-    100% {
-        @include prefix('transform',
-        'scale(0)');
-    }
+        @include prefix('animation-delay','5s');
 }

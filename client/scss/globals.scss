@@ -1,37 +1,40 @@
-body{
-  // transition: background ease-in-out 0.5s;
-  
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-    @extend .animated;
-    @extend .fadeIn;
+
+
+$chu_font--color: rgb(102, 102, 102);
+$chu_background--color: rgb(244,244,244);
+$chu_background--color--fade: rgba(244,244,244, 0.8);
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
+$chu-font: 'Raleway', sans-serif;
+
+// $chu-font:'Roboto Condensed';
+
+.chu_font {
+    font-family: $chu-font;
+    color: white;
 }
 
-$chu-font-color: rgb(255, 255, 255);
-
-$chu-font:'Roboto Condensed';
-
-.chu-font-color {
-	color: $chu-font-color;
-	font-family: $chu-font;
-
+.chu_font--color {
+	color: $chu_font--color;
 }
 
-.chu-font-outline {
+body {
+    font-family: $chu-font;
+     box-sizing: border-box;
+     height: 100vh;
+     @include prefix('background', '1s ease-in-out');
+}
+.chu_font--outline {
 	text-shadow: 1px 1px 1px rgb(119,119,199);
 	@include prefix('font-smoothing', 'antialiased');
 }
 
 
-.chu-md-font {
+.chu_font--md {
     font-size:4vmax;
 }
 
-.chu-lg-font {
+.chu_font--lg {
     font-size:5vmax;
     font-weight:bold;
 }
@@ -68,8 +71,5 @@ $chu-font:'Roboto Condensed';
     height:100%;
 }
 
-html, body{
-  height:100%;
-}
 
 

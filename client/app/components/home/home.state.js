@@ -2,10 +2,15 @@ function HomeState($stateProvider) {
     $stateProvider
         .state('home', {
             url: '/',
-            //templateUrl: '/app/components/home/home.html',
-            onEnter: function($stateParams, $state, $uibModal) {
+            template: '<div class="home_state"></div>',
+            onEnter: function($stateParams, $state, $uibModal, navBarAnimation) {
+
+                navBarAnimation.background = 'home_state--background';
+                navBarAnimation.status = false;
+                navBarAnimation.nextState = 'profile';
+                navBarAnimation.nextStateDelay = 1000;
                 var modalInstance = $uibModal.open({
-                    templateUrl: '/app/components/home/homeModal.html',
+                    templateUrl: '/app/components/home/home.modal.html',
                     resolve: {
                         content: {
                             name: "Hi, I'm Bryan Chu",
@@ -13,77 +18,47 @@ function HomeState($stateProvider) {
                             question: "Want to learn more?"
                         }
                     },
+                    size: 'lg',
+                    backdrop: 'static',
+                    keyboard: 'false',
                     controller: 'HomeController as homeController'
-                // }).result.finally(function() {
-                //     $state.go('^');
-                // });
-                }).result.then(function(s){
-                    console.log('what is s', s);
-                },function(f){
-                    console.log('what is f', f);
-                    $state.go('home.closed');
-                });
-            },
-            onExit: function(navBarAnimation){
-                console.log('are you leaving?', navBarAnimation);
+                })
 
-                navBarAnimation.status = true;
+                modalInstance.result
+                    .then(function(success) {
+                        console.log('go go home_state leaver', success);
+                        $state.go(success.nextState);
+                        // setTimeout(function() {
+                        //     console.log('delayed close by ', success);
+                        // $state.go(success.nextState);
+                        // }, success.nextStateDelay);
+
+                    }, function(error) {
+                        console.log('what is error', error);
+                        $state.go('^');
+                    });
             }
-
-        })
-        .state('home.closed', {
-            url: '/closed',
-            templateUrl: '/app/components/home/home.html',
-            onEnter: function($stateParams, $state, $uibModal) {
-                var modalInstance = $uibModal.open({
-                    templateUrl: '/app/components/home/test.html',
-                    controller: ['$scope','$state', function ($scope, $state) {
-
-                        $scope.dismiss = function() {
-                            $scope.$dismiss();
-                        };
-
-                        $scope.ok = function() {
-                            $scope
-                            $scope.$close(true);
-
-                        };
-
-                    }]
-                }).result.finally(function() {
-                    $state.go('home');
-                });
-            }
-
         })
 }
-
-
-
-HomeState.$inject = ['$stateProvider'];
-
-module.exports = /*@ngInject*/ HomeState;
-
-
 
 // function HomeState($stateProvider) {
 //     $stateProvider
 //         .state('home', {
 //             url: '/',
-//             templateUrl: '/app/components/home/home.html',
-//             onEnter: function($state){
+//             template: '<div class="home_state"></div>',
+//             onEnter: function($state) {
 //                 $state.go('home.greeting');
 //             }
 //         })
 //         .state('home.greeting', {
-//             views: {
-//                 "modal" : {
-
-//             }
-//         })
-//             onEnter: function($stateParams, $state, $uibModal) {
+//             url: 'greeting',
+//             onEnter: function($stateParams, $state, $uibModal, navBarAnimation) {
+//                 navBarAnimation.background = 'home_state--background';
+//                 navBarAnimation.status = false;
+//                 navBarAnimation.nextState = 'profile';
+//                 navBarAnimation.nextStateDelay = 2000;
 //                 var modalInstance = $uibModal.open({
-//                     templateUrl: '/app/components/home/homeModal.html',
+//                     templateUrl: '/app/components/home/home.modal.html',
 //                     resolve: {
 //                         content: {
 //                             name: "Hi, I'm Bryan Chu",
@@ -91,50 +66,39 @@ module.exports = /*@ngInject*/ HomeState;
 //                             question: "Want to learn more?"
 //                         }
 //                     },
+//                     size: 'lg',
+//                     // backdrop: 'static',
+//                     // keyboard: 'false',
 //                     controller: 'HomeController as homeController'
-//                 // }).result.finally(function() {
-//                 //     $state.go('^');
-//                 // });
-//                 }).result.then(function(s){
-//                     console.log('what is s', s);
-//                 },function(f){
-//                     console.log('what is f', f);
-//                     $state.go('home.closed');
-//                 });
+//                 })
+
+//                 modalInstance.result
+//                     .then(function(success) {
+//                         console.log('go go home_state leaver', success);
+//                         $state.go(success.nextState);
+//                         setTimeout(function() {
+//                             console.log('delayed close by ', success);
+
+//                         }, success.nextStateDelay);
+
+//                     }, function(error) {
+//                         console.log('what is error', error);
+//                         $state.go('.interest');
+//                     });
 //             }
-
 //         })
-//         .state('home.closed', {
-//             url: 'closed',
-//             // templateUrl: '/app/components/home/homeIcon.html',
-//             onEnter: function($stateParams, $state, $uibModal) {
-//                 var modalInstance = $uibModal.open({
-//                     template: '<div class="circle"></div>',
-//                     controller: ['$scope','$state', function HomeController($scope, $state) {
-
-//                         $scope.dismiss = function() {
-//                             $scope.$dismiss();
-//                         };
-
-//                         $scope.ok = function() {
-//                             $scope
-//                             $scope.$close(true);
-
-//                         };
-
-//                     }]
-//                 }).result.finally(function() {
-//                     $state.go('^');
-//                 });
-//             },
-//             abstract: true
-
+//         .state('home.interest', {
+//                 templateUrl: '/app/components/home/home.interest.html',
+//                 controller: 'HomeInterestController as HomeInterestController',
+//                 onEnter: function($stateParams, $state, navBarAnimation) {
+//                     console.log('what i cubey navbar', navBarAnimation)
+//                 }
 //         })
+
 // }
 
 
 
-// HomeState.$inject = ['$stateProvider'];
+HomeState.$inject = ['$stateProvider'];
 
-// module.exports = /*@ngInject*/ HomeState;
-
+module.exports = /*@ngInject*/ HomeState;
