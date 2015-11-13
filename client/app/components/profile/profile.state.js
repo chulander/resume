@@ -12,6 +12,9 @@ function ProfileState($stateProvider) {
 
                 
             },
+            onExit: function(navBarAnimation) {
+                navBarAnimation.prevState = 'profile';
+            },
             resolve: {
                 socials: function($http) {
                     return $http.get('/api/social')

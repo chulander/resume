@@ -13,7 +13,7 @@ function HomeInterestController($scope, navBarAnimation) {
     // console.log('what is navBarAnimation in interest'. navBarAnimation.status);
     $scope.cubeSides = cubeSides;
     $scope.items = original;
-    console.log('how many states are there', original);
+    // console.log('how many states are there', original);
     console.log("interest working", navBarAnimation, $scope.cubeSides);
 
 

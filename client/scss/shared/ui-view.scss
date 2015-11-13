@@ -15,7 +15,7 @@
         //}
         &>.profile_state {
             @extend .animated;
-            @extend .fadeInLeftBig;
+            @extend .lightSpeedIn;
         }
         // & .profile_state__content {
         //     // @extend .animated;
@@ -23,9 +23,9 @@
         // }
         &>.experiences_state {
             @extend .animated;
-            @extend .zoomInLeft;
+            @extend .flipInX;
         }
-        &>.contract_state{
+        &>.contact_state{
             @extend .animated;
             @extend .flipInX;
         }
@@ -54,7 +54,7 @@
         // }
         &>.experiences_state {
             @extend .animated;
-            @extend .zoomOutRight;
+            @extend .flipOutX;
         }
         &>.contact_state{
             @extend .animated;

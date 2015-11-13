@@ -4,7 +4,7 @@ nav {
         margin-bottom: 0;
     }
     // left: 0;
-    // rFight: 0;
+    // right: 0;
     &.ng-hide {}
     &.ng-hide-add {
         
@@ -64,6 +64,8 @@ nav {
     // }
 }
 
+
+
 .navbar--hidden {
     visibility: hidden;
     font: 25px;
@@ -74,18 +76,15 @@ nav {
     @include prefix('transition', 'border 1s ease-in-out');
 }
 
-.navbar-default .navbar-brand:hover {
-    border: 2px white solid;
-    color:white;
-}
-
-
+ 
+.navbar-default a.navbar-brand:hover,
 .navbar-default .navbar-nav > li > a:hover, 
 .navbar-default .navbar-nav > .active > a:hover{
     background-color: rgba(100,100,100,0.4);    
-    text-decoration: underline;
+    
  }
 
+.navbar-default a.navbar-brand:hover,
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a {
@@ -95,3 +94,18 @@ nav {
 .navbar-default .navbar-nav > .active > a {
     color: red;
 }
+
+// Override Navbar brand
+.navbar-brand {
+    text-align:center;
+    i {
+        display: inline-block;
+        vertical-align: middle;
+
+    }
+}
+
+.nav > li:focus {
+    outline: none;
+}
+

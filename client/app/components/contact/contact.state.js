@@ -9,12 +9,25 @@ function ContactState($stateProvider) {
                 navBarAnimation.background = 'contact_state--background';
                 navBarAnimation.status = true;
                 var modalInstance = $uibModal.open({
+                    backdrop: 'static',
+                    keyboard: 'false',
                     templateUrl: '/app/components/contact/contact.modal.html',
                     controller: 'ContactController as contactController'
-                }).result.finally(function() {
-                    $state.go('^');
+                })
+
+                modalInstance.result
+                    .then(function(success) {
+                        $state.go(navBarAnimation.prevState || 'home');
+                }, function(error){
+                    console.log('error', error);
                 });
             }
+        })
+        .state('contact.success', {
+
+        })
+        .state('contact.failure', {
+
         })
 }
 ContactState.$inject = ['$stateProvider'];

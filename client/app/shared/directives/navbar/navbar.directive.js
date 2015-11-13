@@ -7,8 +7,24 @@ function navbar(navBarAnimation, $window) {
             //this is for the hamburger responsive icon
             //scope.navBarAnimation = navBarAnimation;
             navBarAnimation.states = angular.module('app.pages').requires;
-            scope.items = navBarAnimation.states;
             scope.navBarAnimation = navBarAnimation;
+            scope.items = navBarAnimation.states;
+
+            var icons = {
+                home: 'fa-home',
+                experiences: 'fa-briefcase',
+                education: 'fa-graduation-cap',
+                contact: 'fa-file-text',
+                profile: 'fa-user',
+                projects: 'fa-folder',
+                skills: 'fa-code'
+
+            }
+
+            scope.icons = icons;
+
+                    
+            
 
             scope.spans = new Array(3);
 
@@ -36,4 +52,4 @@ function navbar(navBarAnimation, $window) {
 }
 
 navbar.$inject = ['navBarAnimation', '$window'];
-module.exports = navbar;
+module.exports = /*@ngInject*/  navbar;

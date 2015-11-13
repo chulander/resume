@@ -35,21 +35,29 @@
 
 //bootstrap jumbotron overides
 
+$cube--size: 200px;
+$cube--margin: $cube--size/5;
+$cube--perspective: $cube--size*2.5;
+$cube__content--size: 100%;
+$cube__content--translateZ: -($cube--size/2);
+$cube__content__item--font: $cube--size/10;
+$cube__content--duration: 12s;
+
+
 .cube {
-    width: 500px;
-    height: 500px;
+    width: $cube--size;
+    height: $cube--size;
     position: relative;
-    font-size:20px;
-    margin: 0 auto 100px;
-    @include prefix('perspective', '1200px');
+    margin: 0 auto $cube--margin;
+    @include prefix('perspective', $cube--perspective);
 }
 
 .cube__content {
-    width: 100%;
-    height: 100%;
+    width: $cube__content--size;
+    height: $cube__content--size;
     position: absolute;
     @include prefix('transform-style', 'preserve-3d');
-    @include prefix('transform', 'translateZ(-250px)');
+    @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ')' );
 }
 
 .cube__content:hover{
@@ -59,13 +67,11 @@
 .cube__content__item {
  display: block;
       position: absolute;
-      width: 500px;
-      height: 500px;
-      // width: 196px;
-      // height: 196px;
+      width: $cube--size;
+        height: $cube--size;
       //border: 2px solid black;
-      line-height: 500px;
-      font-size: 40px;
+      line-height: $cube--size;
+      font-size: $cube__content__item--font;
       font-weight: bold;
       color: red;
       text-align: center;
@@ -74,51 +80,51 @@
 }
 
 .cube__content__item.front {
-    @include prefix('transform', 'translateZ( 250px )'); 
+    @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ')'); 
 }
 
-.cube__content__item.back {
-    @include prefix('transform', 'rotateX( -180deg ) translateZ( 250px )');
+.cube__content__item.back { 
+    @include prefix('transform', 'rotateX( -180deg ) translateZ(' + $cube__content--translateZ + ')');
 }
 
 .cube__content__item.right {
-    @include prefix('transform', 'rotateY( 90deg ) translateZ( 250px )');
+    @include prefix('transform', 'rotateY( 90deg ) translateZ(' + $cube__content--translateZ + ')');
 }
 
 .cube__content__item.left {
-    @include prefix('transform', 'rotateY( -90deg ) translateZ( 250px )');
+    @include prefix('transform', 'rotateY( -90deg ) translateZ(' + $cube__content--translateZ + ')');
 }
 
 .cube__content__item.top {
-    @include prefix('transform', 'rotateX(  90deg ) translateZ( 250px )');
+    @include prefix('transform', 'rotateX(  90deg ) translateZ(' + $cube__content--translateZ + ')');
 }
 
 .cube__content__item.bottom {
-    @include prefix('transform', 'rotateX( -90deg ) translateZ( 250px )');
+    @include prefix('transform', 'rotateX( -90deg ) translateZ(' + $cube__content--translateZ + ')');
 }
 
 .cube__content--spinning{
-    @include prefix('animation', 'spinCubeWebkit 6s linear infinite');
-    @include prefix('animation', 'spinCubeMoz 6s linear infinite');
-    @include prefix('animation', 'spinCubeO 6s linear infinite');
-    @include prefix('animation', 'spinCube 6s linear infinite');
+    @include prefix('animation', 'spinCubeWebkit 12s linear infinite');
+    @include prefix('animation', 'spinCubeMoz 12s linear infinite');
+    @include prefix('animation', 'spinCubeO 12s linear infinite');
+    @include prefix('animation', 'spinCube 12s linear infinite');
 }
 
 @-webkit-keyframes spinCubeWebkit {
-    0% { @include prefix('transform', 'translateZ(-250px) rotateX(0deg) rotateY(0deg)');}
-    100% {@include prefix('transform', 'translateZ(-250px) rotateX(360deg) rotateY(360deg)');}
+    0% { @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(0deg)');}
+    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(360deg)');}
 }
 
 @-moz-keyframes spinCubeMoz {
-    0% {@include prefix('transform', 'translateZ(-250px) rotateX(0deg) rotateY(0deg)');}
-    100% {@include prefix('transform', 'translateZ(-250px) rotateX(360deg) rotateY(360deg)');}
+    0% { @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(0deg)');}
+    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(360deg)');}
 }
 @-o-keyframes spinCubeO {
-    0% {@include prefix('transform', 'translateZ(-250px) rotateX(0deg) rotateY(0deg)');}
-    100% {@include prefix('transform', 'translateZ(-250px) rotateX(360deg) rotateY(360deg)');}
+    0% { @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(0deg)');}
+    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(360deg)');}
 }
 @keyframes spinCube {
-    0% {@include prefix('transform', 'translateZ(-250px) rotateX(0deg) rotateY(0deg)');}
-    100% {@include prefix('transform', 'translateZ(-250px) rotateX(360deg) rotateY(360deg)');}
+    0% { @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(0deg)');}
+    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(360deg)');}
 }
 
