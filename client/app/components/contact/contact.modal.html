@@ -1,17 +1,18 @@
 <form class="form-horizontal contact_form" name="user" novalidate>
     <fieldset>
         <legend>Please Enter Your Message</legend>
-        <div class="form-group">
+
+        <div class="form-group required">
             <label class="col-lg-2 control-label">Intent</label>
             <div class="col-lg-10">
                 <div class="radio">
                     <label>
-                        <input ng-model="user.intent" type="radio" name="optionsRadios" value="hire" checked="checked">To Hire
+                        <input ng-model="user.intent" type="radio" name="intent" value="hire" ng-value="user.intent">To Hire
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input ng-model="user.intent" type="radio" name="optionsRadios" value="collaborate"> To Collaborate
+                        <input ng-model="user.intent" type="radio" name="intent" value="collaborate"> To Collaborate
                     </label>
                 </div>
             </div>
@@ -31,12 +32,8 @@
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button ng-click="dismiss()" type="reset" class="btn btn-default">Cancel</button>
-                <button ng-click="save()" type="submit" ng-disabled="!user.$valid" class="btn btn-primary">Submit</button>
+                <button ng-click="save()" type="submit" class="btn btn-primary" ng-disabled="!user.$valid">Submit</button>
             </div>
-        </div>
-        <!--Error Messages for Email Field-->
-        <div style="color:red; font-weight:bold;margin-top:20px;" ng-show="user.email.$invalid">
-            ERROR. Your email address does not validate with current Angular EMAIL_REGEXP.
         </div>
         </div>
     </fieldset>

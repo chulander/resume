@@ -3,8 +3,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    @extend .animated;
-    @extend .fadeIn;
+    // @extend .animated;
+    // @extend .lightSpeedIn;
 }
 
 .profile_state {

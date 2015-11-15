@@ -9,9 +9,14 @@ function ContactController($scope, $state, navBarAnimation, backendData) {
     };
 
     $scope.email = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+
     $scope.save = function() {
         
         backendData.postInterest($scope.user)
+            // .then(function(item){
+            //     console.log('what is item', item)
+            //     $scope.dismiss(item);
+            // })
             .success(function(){
                 console.log('success')
             $scope.$close(true);

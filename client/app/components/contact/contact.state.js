@@ -23,8 +23,8 @@ function ContactState($stateProvider) {
                 });
             }
         })
-        .state('contact.success', {
-
+        .state('contact.loading', {
+            template: '<i class="fa fa-refresh fa-spin"></i>'
         })
         .state('contact.failure', {
 

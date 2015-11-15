@@ -1,4 +1,4 @@
-function ExperiencesModalController($scope, $uibModalInstance, content) {
+function ExperiencesModalController($scope, $uibModalInstance, content,uiGmapGoogleMapApi) {
 
     // $scope.career = {
     // 	company: content.company,
@@ -24,7 +24,10 @@ function ExperiencesModalController($scope, $uibModalInstance, content) {
 
     };
 
+    uiGmapGoogleMapApi.then(function(maps) {
+        $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+    });
 }
-ExperiencesModalController.$inject = ['$scope', '$uibModalInstance', 'content'];
+ExperiencesModalController.$inject = ['$scope', '$uibModalInstance', 'content', 'uiGmapGoogleMapApi'];
 
 module.exports = ExperiencesModalController;

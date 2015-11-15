@@ -8,12 +8,10 @@
     <script src="/socket.io-client/socket.io.js"></script>
 </head>
 
-<body class="home_state--background" ng-class="navBarAnimation.background" keypress ng-app="app">
-    <navbar ng-class="{'navbar--hidden': !navBarAnimation.status}"></navbar>
-
-
+<body ng-class="navBarAnimation.background || home_state--background" keypress ng-app="app">
+    <navbar ng-show="navBarAnimation.status"></navbar>
     <ui-view class="chu-content"></ui-view>
-        <script src="/script.js"></script>
+    <script src="/script.js"></script>
 </body>
 
 </html>

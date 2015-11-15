@@ -10,7 +10,12 @@ function backendData ($http){
 	}
 	data.postInterest = function(input){
 		return $http.post('/api/interest', input)
-	}
+			// .then(function(success){
+			// 	return success;
+			// }, function(error){
+			// 	return error;
+			// })
+		}
 	return data;
 }
 
