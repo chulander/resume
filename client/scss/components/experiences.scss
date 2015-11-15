@@ -1,50 +1,24 @@
 
+
 .modal-content {
     margin-top: 25%;
     opacity: 0.95;
-  
 }
 
-
-// .modal-backdrop.in{
-//     @include prefix('transition', 'all 0.1s ease-in-out');
-//     opacity:0.5;
-//     &.enter{
-//         opacity:0.5;
-//     }
-//     &.leave{
-//         // @include prefix('animation-duration', '.75s');
-//         @include prefix('transition', 'all 0.05s ease-in-out');
-//         opacity:0.5;
-//         // @include prefix('transition', 'opacity 0.1s linear');
-//     }
-//     &.leave-active {
-
-//     }
-// }
-
-// div[modal-render=true] {
-//     &.leave {
-//         @include prefix('animation-duration', '.75s');
-     
-//     }
-//     &.leave-active {
-//         @extend .animated;
-//         @extend .lightSpeedOut;
-//     }
-// }
-
 .experiences_state--background {
-    background-image: url('/asset/macbook_coffee.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url('/asset/macbook_coffee.jpg') no-repeat center center fixed;
+    @include prefix('background-size', 'cover');
+
 }
 
 .experiences_state {
     min-height: 100vh;
-    width: 100vw;    
+    width: 100vw;
     position: relative;
+}
+
+.experience_state__timeline__item--modal {
+    background-color: rgba(0,0,0,0.7);
 }
 
 .experience_state__timeline {
@@ -85,13 +59,13 @@ $timeline_border_width: 3px;
 a[ng-click="open()"]:hover {
     cursor: pointer;
     text-decoration: none;
-    & .experience_state__timeline__item__badge{
+    & .experience_state__timeline__item__badge {
         border: 10px solid red;
     }
 }
 
 .experience_state__timeline__item__panel:hover {
-    border: 2px red solid;
+    border: 2px solid red;
 }
 
 .experience_state__timeline__item__panel {
@@ -104,7 +78,7 @@ a[ng-click="open()"]:hover {
     -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
     box-sizing: border-box;
-    background-color: rgba(222,222,222,0.2);
+    background-color: rgba(222, 222, 222, 0.2);
 }
 
 .experience_state__timeline__item__panel:before {
@@ -113,11 +87,13 @@ a[ng-click="open()"]:hover {
     right: -15px;
     display: inline-block;
     border-top: 15px solid transparent;
-    border-left: 15px solid #ccc;
-    border-right: 0 solid #ccc;
+    border-left: 15px solid red;
+    border-right: 0 solid red;
     border-bottom: 15px solid transparent;
     content: " ";
     box-sizing: border-box;
+    
+
 }
 
 .experience_state__timeline__item__panel:after {
@@ -144,7 +120,7 @@ a[ng-click="open()"]:hover {
     top: 16px;
     left: 50%;
     margin-left: -25px;
-    background-color: rgba(222, 222, 222, .2);
+    background-color: rgba(255, 0, 0,0.8);
     z-index: 100;
     border-top-right-radius: 50%;
     border-top-left-radius: 50%;

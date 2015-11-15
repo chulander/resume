@@ -3,23 +3,23 @@ function ContactController($scope, $state, navBarAnimation, backendData) {
         navBarAnimation.status = true;
     }
 
+    //default value;
+    $scope.user = {};
+    $scope.user.intent='hire';
 
     $scope.dismiss = function() {
         $scope.$dismiss();
     };
 
-    $scope.email = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
-
+    // $scope.email = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+    $scope.hide=true;
     $scope.save = function() {
-        
+        $scope.hide=false;
+
         backendData.postInterest($scope.user)
-            // .then(function(item){
-            //     console.log('what is item', item)
-            //     $scope.dismiss(item);
-            // })
             .success(function(){
                 console.log('success')
-            $scope.$close(true);
+                $scope.$close(true);
 
             })
             .error(function(err){

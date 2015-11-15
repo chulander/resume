@@ -1,18 +1,17 @@
-<form class="form-horizontal contact_form" name="user" novalidate>
-    <fieldset>
+<form class="form-horizontal" name="contactForm" ng-submit="save()" novalidate>
+    <fieldset ng-hide="!hide">
         <legend>Please Enter Your Message</legend>
-
-        <div class="form-group required">
+        <div class="form-group">
             <label class="col-lg-2 control-label">Intent</label>
             <div class="col-lg-10">
                 <div class="radio">
                     <label>
-                        <input ng-model="user.intent" type="radio" name="intent" value="hire" ng-value="user.intent">To Hire
+                        <input type="radio" name="intent" value="hire" ng-model="user.intent" required checked>To Hire
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input ng-model="user.intent" type="radio" name="intent" value="collaborate"> To Collaborate
+                        <input type="radio" name="intent" value="collaborate" ng-model="user.intent" required> To Collaborate
                     </label>
                 </div>
             </div>
@@ -20,21 +19,24 @@
         <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Email</label>
             <div class="col-lg-10">
-                <input ng-model="user.email" type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Email" required>
+                <p ng-show="contactForm.email.$invalid && !contactForm.email.$pristine" class="help-block">Enter a valid email.</p>
             </div>
         </div>
         <div class="form-group">
             <label for="textArea" class="col-lg-2 control-label">Message</label>
             <div class="col-lg-10">
-                <textarea ng-model="user.message" class="form-control" rows="3" id="textArea" placeholder="Message"></textarea>
+                <textarea class="form-control" rows="3" ng-model="user.message" placeholder="Message"></textarea>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button ng-click="dismiss()" type="reset" class="btn btn-default">Cancel</button>
-                <button ng-click="save()" type="submit" class="btn btn-primary" ng-disabled="!user.$valid">Submit</button>
+                <button type="submit" class="btn btn-primary" ng-disabled="contactForm.$invalid">Submit</button>
             </div>
         </div>
         </div>
     </fieldset>
+    <loader ng-hide="hide"></loader>
 </form>
+

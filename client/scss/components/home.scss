@@ -1,4 +1,4 @@
-angular-ui modal animation OVERRIDE
+// angular-ui modal animation OVERRIDE
 .modal.fade,
 .modal-dialog {
     @include prefix('transition', 'none');
@@ -9,27 +9,34 @@ angular-ui modal animation OVERRIDE
 
 .modal.fade.modal-backdrop.in {
     @include prefix('transition', 'opacity 1s ease-in-out');
-    opacity: 0.50;
+    // opacity: .7;
 }
 
-
+.home_state__content--modal {
+    background-color: rgba(0, 0, 0, 1);
+}
 
 //select the parent with a specific child
 .modal-content {
     background-color: rgba(0, 0, 0, 0);
-    @include prefix('box-shadow',
-    'none');
+    @include prefix('box-shadow', 'none');
     border: none;
     &.home_state__content {}
 }
 
 
 .home_state--background {
-    background-image: url('/asset/macbook_topdown.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url('/asset/macbook_topdown.jpg') no-repeat fixed;
+    @include prefix('background-size', 'cover');
 }
+
+
+// @media only screen and (max-device-width: 480px) {
+//     .home_state--background {
+//         @include prefix('background-size', 'cover');
+//         background: url('/asset/macbook_topdown.jpg') no-repeat center center fixed;
+//     }
+// }
 
 .home_state {
     height: 100vh;
@@ -39,9 +46,10 @@ angular-ui modal animation OVERRIDE
     .home_state__content {
         float: left;
     }
-
 }
+
 button.home_state__content__button {
     float: right;
-        @include prefix('animation-delay','5s');
+    @include prefix('animation-delay',
+    '5s');
 }

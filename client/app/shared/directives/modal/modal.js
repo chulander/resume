@@ -13,14 +13,14 @@ function MyModal($uibModal) {
             scope.open = function(){
 
                 var modalInstance = $uibModal.open({
-                    templateUrl: '/app/shared/directives/modal/modal.html',
+                    // templateUrl: '/app/shared/directives/modal/modal.html',
+                    templateUrl: attrs.instanceTemplate,
                     controller:  scope.useCtrl,
-                    animation: true,
                     size: 'lg',
                     windowClass: 'app-modal-window',
-                    // windowClass: 'animated lightSpeedIn',
+                    
                     backdrop: true,
-                    // backdropClass: 'animated lightSpeedIn',
+                    backdropClass: 'animated fadeIn experience_state__timeline__item--modal',
                     // windowClass: 'animated slideInLeft',
                     resolve: {
                         content: function(){

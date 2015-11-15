@@ -1,10 +1,19 @@
+
+// @media only screen and (min-device-width: 480px) {
+
+// }
+@media only screen and (max-device-width: 480px) {
+    .profile_state--background {
+    background: url('/asset/macbook_topdown.jpg') no-repeat center center fixed;
+    @include prefix('background-size', 'cover');
+    }
+}
+
+
+
 .profile_state--background {
-    background-image: url('/asset/macbook_topdown.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    // @extend .animated;
-    // @extend .lightSpeedIn;
+    background: url('/asset/macbook_topdown.jpg') no-repeat fixed;
+    @include prefix('background-size', 'cover');
 }
 
 .profile_state {

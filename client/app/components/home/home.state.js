@@ -21,6 +21,7 @@ function HomeState($stateProvider) {
                     size: 'lg',
                     backdrop: 'static',
                     keyboard: 'false',
+                    backdropClass: 'home_state__content--modal',
                     controller: 'HomeController as homeController'
                 })
 

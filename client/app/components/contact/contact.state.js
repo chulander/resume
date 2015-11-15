@@ -18,16 +18,12 @@ function ContactState($stateProvider) {
                 modalInstance.result
                     .then(function(success) {
                         $state.go(navBarAnimation.prevState || 'home');
+                        
                 }, function(error){
-                    console.log('error', error);
+                    console.log('what is prevState', navBarAnimation.prevState);
+                        $state.go(navBarAnimation.prevState || 'home');
                 });
             }
-        })
-        .state('contact.loading', {
-            template: '<i class="fa fa-refresh fa-spin"></i>'
-        })
-        .state('contact.failure', {
-
         })
 }
 ContactState.$inject = ['$stateProvider'];
