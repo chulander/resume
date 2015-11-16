@@ -1,17 +1,13 @@
 <div class="modal-header">
-<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
     <h3 class="modal-title">{{content.company}}</h3>
 </div>
 <div class="modal-body">
+<ui-gmap-google-map center='map.center' control='control' zoom='map.zoom'></ui-gmap-google-map>
     <ul>
-        <!-- <li ng-repeat="item in items">
-            <a ng-click="selected.item = item">{{ item }}</a>
-        </li> -->
         <li>{{content.title}}</li>
         <li>{{content.position}}</li>
         <li>{{content}}</li>
     </ul>
-    <!-- Selected: <b>{{content }}</b> -->
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" ng-click="ok()">OK</button>

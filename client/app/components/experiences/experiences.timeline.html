@@ -5,10 +5,11 @@
     <div class="container">
         <ul class="experience_state__timeline">
             <li class="experience_state__timeline__item chu_font chu_font--outline" ng-class="{'experience_state__timeline__item-inverted': $index % 2==1}" ng-repeat="job in jobs | orderBy:'endDate':true " job="job" id="{{$index}}">
-                <div my-modal name="bryan" instance-template="/app/shared/directives/modal/modal.html" content="{{job}}" use-ctrl="ExperiencesModalController as experienceModalController" class="experience_state__timeline__item__panel">
+                <div my-modal gmap="gmap" content="{{job}}" modal-controller="{{custom.controller}}" modal-template="{{custom.template}}" class="experience_state__timeline__item__panel">
+
                     <h3 class="chu_font experience_state__timeline__item__panel-title">{{job.company}} - {{job.title}}</h3>
                     <span class="chu_font experience_state__timeline__item__panel-position">{{job.position}}</span>
-                    <p class="chu_font experience_state__timeline__item__panel-date">{{job.startDate | date: 'MMM yyyy'}} - {{job.endDate | date: 'MMM yyyy'}}</span>
+                    <p class="chu_font experience_state__timeline__item__panel-date">{{job.startDate | date: 'MMM yyyy'}} - {{job.endDate | date: 'MMM yyyy'}}</p>
                 </div>
                 <div class="experience_state__timeline__item__badge" ng-model=model.invert>
                     <span>{{job.startDate | date: 'yyyy'}}</span>
@@ -19,4 +20,5 @@
     
     </div>
 </div>
-<!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> -->
+
+<!-- <ui-gmap-google-map center='map.center' zoom='map.zoom' my-modal name="bryan" instance-template="/app/shared/directives/modal/modal.html" content="{{job}}" use-ctrl="ExperiencesModalController as experienceModalController" class="experience_state__timeline__item__panel"></ui-gmap-google-map> -->

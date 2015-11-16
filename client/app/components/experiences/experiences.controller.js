@@ -1,19 +1,20 @@
 
-function ExperiencesController($scope, $state, navBarAnimation, jobs,uiGmapGoogleMapApi){
+function ExperiencesController($scope, $state, navBarAnimation, jobs, gmap){
 	 $scope.navBarAnimation=navBarAnimation;
 	 // if ($state.is('experiences')) {
   //       navBarAnimation.status = true;
   //       // navBarAnimation.background = 'experiences_state--background';
   //   }
 	$scope.jobs = jobs;
-	console.log('what is jobs', jobs);
+	$scope.custom = {
+		controller: "ExperiencesModalController as experiencesModalController",
+		template: "/app/components/experiences/experiences.item.html"
+	}
 	
-	uiGmapGoogleMapApi.then(function(maps) {
-        console.log("what is maps", maps);
-        $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
-    });
+	console.log('what is gmap inside regular controller', gmap);		
+	$scope.gmap = gmap;
 }
 
-ExperiencesController.$inject = ['$scope', '$state', 'navBarAnimation', 'jobs','uiGmapGoogleMapApi'];
+ExperiencesController.$inject = ['$scope', '$state', 'navBarAnimation', 'jobs', 'gmap'];
 
 module.exports = ExperiencesController;

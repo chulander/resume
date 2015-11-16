@@ -25,5 +25,14 @@ var schema = new mongoose.Schema({
 
 });
 
+schema.virtual('mapAddress').get(function(){
+    return this.line1 + ',' + this.city + ',' + this.state + ',' + this.zip;
+})
 
+schema.set('toJSON', {getters: true, virtuals: true
+});
+
+schema.set('toObject', {getters: true, virtuals: true
+
+});
 mongoose.model('Address', schema);

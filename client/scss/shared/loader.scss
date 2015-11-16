@@ -1,0 +1,21 @@
+.loader__container {
+    float: left;
+    position: relative;
+    left: 50%;
+}
+
+.loader__content {
+    float: left;
+    position: relative;
+    left: -50%;
+}
+
+.loader__content__item {
+    float: left;
+}
+
+.loader__content__item--big_icon {
+    font-size: 24em;
+}
+
+

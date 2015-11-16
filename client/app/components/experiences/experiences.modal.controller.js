@@ -1,33 +1,24 @@
-function ExperiencesModalController($scope, $uibModalInstance, content,uiGmapGoogleMapApi) {
+function ExperiencesModalController($scope, $uibModalInstance, content, uiGmapIsReady, mapOptions) {
 
-    // $scope.career = {
-    // 	company: content.company,
-    // 	title: content.title,
-    // 	startDate: content.startDate,
-    // 	endDate: content.endDate,
-    // 	title: content.title,
-    // 	position: content.position
-    // };
-    // this.content = content;
-    // console.log('what is $scope content', this.content);
-
-	$scope.content = JSON.parse(content); 
     $scope.ok = function() {
         $uibModalInstance.close();
     };
 
     $scope.cancel = function() {
-        
-         $timeout(function() {
-            $uibModalInstance.dismiss('cancel');
-        }, 2000);
-
+        $uibModalInstance.dismiss('cancel');
     };
 
-    uiGmapGoogleMapApi.then(function(maps) {
-        $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
-    });
-}
-ExperiencesModalController.$inject = ['$scope', '$uibModalInstance', 'content', 'uiGmapGoogleMapApi'];
+    //add the map to the scope
+    $scope.map = mapOptions;
+    uiGmapIsReady.promise().then(function(maps){
+        console.log('what is maps inside ready', maps);        
+        // $scope.control.refresh();
 
-module.exports = ExperiencesModalController;
+    })
+
+    $scope.content = content;
+
+}
+ExperiencesModalController.$inject = ['$scope', '$uibModalInstance', 'content', 'uiGmapIsReady', 'mapOptions'];
+
+module.exports = /* @ngInject */ ExperiencesModalController;
