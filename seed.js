@@ -85,8 +85,8 @@ var seedJobs = function() {
         '12/31/2011'
     );
 
-     var markitPositions = [markitPosition1, markitPosition2, markitPosition3]
-    
+    var markitPositions = [markitPosition1, markitPosition2, markitPosition3]
+
     var mlAddress = new Address(new createAddress('2 World Financial Center', null, 'New York', 'NY', '10281'));
     var msAddress = new Address(new createAddress('Harborside Financial Center', 'Plaza Two', 'Jersey City', 'NJ', '07331'));
 
@@ -131,90 +131,84 @@ var seedJobs = function() {
         .catch(function(e) {
             console.log('waht is error', e);
         })
-    // return Address.createAsync(markitAddress)
-    //     .then(function(address) {
-    //         markitJob.address = address;
-    //         return Position.createAsync(markitPositions)
-    //     })
-    //     .then(function(positions) {
-    //         markitJob.position = positions;
-    //         return Job.createAsync(markitJob);
-    //     }).then(function(job) {
-    //         return Job.findOne(job)
-    //             .populate(['position', 'address'])
-    //             .exec([markitJob.position, markitJob.address])
-    //     })
-    //     .then(function(result) {
-    //         console.log('what is result', result)
-    //     })
-    //     .catch(function(e) {
-    //         console.log('error', e);
-    //     })
+
 
 };
 
+var Social = Promise.promisifyAll(mongoose.model('Social'));
+
+var linkedin = {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/bryanpchu',
+    className: 'fa fa-linkedin-square',
+    image: '/asset/linkedin.jpg',
+    caption: 'connect on LinkedIn'
+}
+
+var Twitter = {
+    name: 'Twitter',
+    url: 'https://twitter.com/bryan_chulander',
+    className: 'fa fa-twitter-square',
+    image: '/asset/twitter.jpg',
+    caption: 'follow on Twitter'
+}
+
+var GitHub = {
+    name: 'GitHub',
+    url: 'https://github.com/chulander',
+    className: 'fa fa-github-alt',
+    image: 'https://avatars3.githubusercontent.com/u/4703475?v=3&s=460',
+    caption: 'view my GitHub'
+}
+
+
+var seedSocials = function() {
+    var items = [linkedin, Twitter, GitHub];
+    return Social.createAsync(items)
+}
+
 connectToDb.then(function() {
+    console.log('starting seed Experience');
     Job.findAsync({}).then(function(jobs) {
         if (jobs.length === 0) {
             return seedJobs();
         } else {
-            console.log(chalk.magenta('Seems to already be user data, exiting!'));
-            process.kill(0);
+            console.log(chalk.magenta('Seems to already be jobs data, exiting!'));
+            return;
         }
     }).then(function() {
-        console.log(chalk.green('Seed successful!'));
+        console.log(chalk.green('Seed Experiences successful!'));
+        console.log(chalk.green('Starting to seed socials'));
+        return Social.findAsync({})
+
+    }).then(function(socials) {
+        if (socials.length === 0) {
+            return seedSocials();
+        } else {
+            console.log(chalk.magenta('Seems to already be socials data, exiting!'));
+            return;
+        }
+    }).then(function() {
+        console.log(chalk.green('Seed Socials successful!'));
         process.kill(0);
     }).catch(function(err) {
         console.error(err);
         process.kill(1);
     });
+
 });
 
-
-// var Social = Promise.promisifyAll(mongoose.model('Social'));
-
-// var linkedin = {
-//     name: 'LinkedIn',
-//     url: 'https://www.linkedin.com/in/bryanpchu',
-//     className: 'fa fa-linkedin-square',
-//     image: '/asset/linkedin.jpg',
-//     caption: 'connect on LinkedIn'
-// }
-
-// var Twitter = {
-//     name: 'Twitter',
-//     url: 'https://twitter.com/bryan_chulander',
-//     className: 'fa fa-twitter-square',
-//     image: '/asset/twitter.jpg',
-//     caption: 'follow on Twitter'
-// }
-
-// var GitHub = {
-//     name: 'GitHub',
-//     url: 'https://github.com/chulander',
-//     className: 'fa fa-github-alt',
-//     image: 'https://avatars3.githubusercontent.com/u/4703475?v=3&s=460',
-//     caption: 'view my GitHub'
-// }
-
-
-// var seedJobs = function(){
-//     var items = [linkedin, Twitter, GitHub];
-//     return Social.createAsync(items)
-// }
-// connectToDb.then(function() {
-//     Social.findAsync({}).then(function(jobs) {
-//         if (jobs.length === 0) {
-//             return seedJobs();
-//         } else {
-//             console.log(chalk.magenta('Seems to already be user data, exiting!'));
-//             process.kill(0);
-//         }
-//     }).then(function() {
-//         console.log(chalk.green('Seed successful!'));
+// Social.findAsync({}).then(function(socials) {
+//     if (socials.length === 0) {
+//         return seedSocials();
+//     } else {
+//         console.log(chalk.magenta('Seems to already be socials data, exiting!'));
 //         process.kill(0);
-//     }).catch(function(err) {
-//         console.error(err);
-//         process.kill(1);
-//     });
+//     }
+// }).then(function() {
+//     console.log(chalk.green('Seed Socials successful!'));
+//     process.kill(0);
+// }).catch(function(err) {
+//     console.error(err);
+//     process.kill(1);
 // });
