@@ -6,14 +6,14 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span ng-repeat="n in spans track by $index" class="icon-bar"></span>
             </button>
-            <a class="navbar-brand fa fa-2x fa-home" ng-click="navBarAnimation.status=false" ui-sref="home">
+            <a class="navbar-brand fa fa-2x fa-home chu_font--shadow" ng-click="navBarAnimation.status=false" ui-sref="home">
                 Home
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
             <ul class="nav navbar-nav navbar-right">
-                <li ui-sref-active="active" ng-repeat="item in items | orderBy : item" ng-if="item !='home'" class="dropdown" dropdown>
+                <li class="chu_font--shadow" ui-sref-active="active--state" ng-repeat="item in items" ng-if="item !='home'" class="dropdown" dropdown>
                     <a ui-sref="{{ item }}" class="fa {{icons[item]}}">
                         
                       {{ item | uppercase}}

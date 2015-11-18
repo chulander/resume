@@ -2,17 +2,17 @@
 // @media only screen and (min-device-width: 480px) {
 
 // }
-@media only screen and (max-device-width: 480px) {
-    .profile_state--background {
-    background: url('/asset/macbook_topdown.jpg') no-repeat center center fixed;
-    @include prefix('background-size', 'cover');
-    }
-}
+// @media only screen and (max-device-width: 480px) {
+//     .profile_state--background {
+//     background: url('/asset/profile.jpg') no-repeat center center fixed;
+//     @include prefix('background-size', 'cover');
+//     }
+// }
 
 
 
 .profile_state--background {
-    background: url('/asset/macbook_topdown.jpg') no-repeat fixed;
+    background: url('/asset/profile.jpg') no-repeat fixed;
     @include prefix('background-size', 'cover');
 }
 
@@ -44,7 +44,7 @@
 
 //bootstrap jumbotron overides
 
-$cube--size: 200px;
+$cube--size: 40px;
 $cube--margin: $cube--size/5;
 $cube--perspective: $cube--size*2.5;
 $cube__content--size: 100%;
@@ -69,9 +69,26 @@ $cube__content--duration: 12s;
     @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ')' );
 }
 
-.cube__content:hover{
-    @include prefix('animation-play-state', 'paused');
+.cube__content:hover {
+       @include prefix('animation-play-state', 'paused');
+    & .back:hover{
+        @include prefix('animation-play-state', 'paused');
+    }
+    & .right:hover{
+        @include prefix('animation-play-state', 'paused');
+    }
+    & .left:hover{
+        @include prefix('animation-play-state', 'paused');
+    }
+    & .top:hover{
+        @include prefix('animation-play-state', 'paused');   
+    }
+    & .bottom {
+        @include prefix('animation-play-state', 'paused');
+    }
 }
+
+
 
 .cube__content__item {
  display: block;
@@ -85,8 +102,34 @@ $cube__content--duration: 12s;
       color: red;
       text-align: center;
       background-color: $chu_background--color--fade;
+      font-size: $cube--size;
 
 }
+
+// .cube__content__item.front {
+//     @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ')'); 
+// }
+
+// .cube__content__item.back { 
+//     @include prefix('transform', 'rotateX( -180deg ) translateZ(' + $cube__content--translateZ + ')');
+// }
+
+// .cube__content__item.right {
+//     @include prefix('transform', 'rotateY( 90deg ) translateZ(' + $cube__content--translateZ + ')');
+// }
+
+// .cube__content__item.left {
+//     @include prefix('transform', 'rotateY( -90deg ) translateZ(' + $cube__content--translateZ + ')');
+// }
+
+// .cube__content__item.top {
+//     @include prefix('transform', 'rotateX(  90deg ) translateZ(' + $cube__content--translateZ + ')');
+// }
+
+// .cube__content__item.bottom {
+//     @include prefix('transform', 'rotateX( -90deg ) translateZ(' + $cube__content--translateZ + ')');
+// }
+
 
 .cube__content__item.front {
     @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ')'); 
@@ -112,28 +155,36 @@ $cube__content--duration: 12s;
     @include prefix('transform', 'rotateX( -90deg ) translateZ(' + $cube__content--translateZ + ')');
 }
 
+
+
 .cube__content--spinning{
-    @include prefix('animation', 'spinCubeWebkit 12s linear infinite');
-    @include prefix('animation', 'spinCubeMoz 12s linear infinite');
-    @include prefix('animation', 'spinCubeO 12s linear infinite');
-    @include prefix('animation', 'spinCube 12s linear infinite');
+    @include prefix('animation', 'spinCubeWebkit 4s linear infinite');
+    @include prefix('animation', 'spinCubeMoz 4s linear infinite');
+    @include prefix('animation', 'spinCubeO 4s linear infinite');
+    @include prefix('animation', 'spinCube 4s linear infinite');
 }
 
 @-webkit-keyframes spinCubeWebkit {
+    // 0% { @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(0deg)');}
+    // 25% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(180deg)');}
+    // 50% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(180deg) rotateY(180deg)');}
+    // 75% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(180deg)');}
+    // 100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(360deg)');}
+
     0% { @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(0deg)');}
-    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(360deg)');}
+    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(0deg)');}
 }
 
 @-moz-keyframes spinCubeMoz {
     0% { @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(0deg)');}
-    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(360deg)');}
+    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(0deg)');}
 }
 @-o-keyframes spinCubeO {
     0% { @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(0deg)');}
-    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(360deg)');}
+    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(0deg)');}
 }
 @keyframes spinCube {
     0% { @include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(0deg) rotateY(0deg)');}
-    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(360deg)');}
+    100% {@include prefix('transform', 'translateZ(' + $cube__content--translateZ + ') rotateX(360deg) rotateY(0deg)');}
 }
 

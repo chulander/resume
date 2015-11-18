@@ -16,7 +16,8 @@
         //}
         &>.profile_state {
             @extend .animated;
-            @extend .lightSpeedIn;
+            // @extend .lightSpeedIn;
+            @extend .bounceIn;
             // @extend .flipInY;
         }
         // & .profile_state__content {
@@ -24,8 +25,8 @@
         //     // @extend .slideInLeft;
         // }
         &>.experiences_state {
-            // @extend .animated;
-            // @extend .bounceIn;
+            @extend .animated;
+            @extend .fadeInLeft;
         }
         &>.contact_state{
             @extend .animated;

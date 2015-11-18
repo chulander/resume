@@ -29,23 +29,23 @@ function navbar(navBarAnimation, $window) {
             scope.spans = new Array(3);
 
 
-            angular.element($window).bind("scroll", function(){
-                if(!scope.scrollPosition){
+            // angular.element($window).bind("scroll", function(){
+            //     if(!scope.scrollPosition){
                     
-                    scope.scrollPosition=0;
-                }
-                if(this.pageYOffset > 40) {
-                    console.log('setting to TRUEE')
-                    navBarAnimation.navBarScroll = true;
-                } else {
+            //         scope.scrollPosition=0;
+            //     }
+            //     if(this.pageYOffset > 40) {
+            //         console.log('setting to TRUEE')
+            //         navBarAnimation.navBarScroll = true;
+            //     } else {
                     
-                    navBarAnimation.navBarScroll = false;
-                }
-                scope.$apply(function(){
+            //         navBarAnimation.navBarScroll = false;
+            //     }
+            //     scope.$apply(function(){
                     
-                }); 
+            //     }); 
                 
-            })
+            // })
 
         }
     }

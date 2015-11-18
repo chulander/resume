@@ -1,6 +1,6 @@
 function ProfileController($scope, $state, navBarAnimation, socials) {
     $scope.socials = socials;
-    console.log('inside profile controller');
+ 
     $scope.$on('animationstart', function(t){
     	console.log('profile animation start', t);
     })

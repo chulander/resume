@@ -1,9 +1,10 @@
 <div class="modal-header">
     <h3 class="modal-title">{{content.company}}</h3>
+    <ui-gmap-google-map center='map.center' control='control' zoom='map.zoom'></ui-gmap-google-map>
+    <ul>
 </div>
 <div class="modal-body">
-<ui-gmap-google-map center='map.center' control='control' zoom='map.zoom'></ui-gmap-google-map>
-    <ul>
+
         <li>{{content.title}}</li>
         <li>{{content.position}}</li>
         <li>{{content}}</li>

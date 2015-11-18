@@ -34,7 +34,8 @@ function MyModal($uibModal) {
                     templateUrl: attrs.modalTemplate,
                     controller: attrs.modalController,
                     size: 'lg',
-                    windowClass: 'app-modal-window',
+                    // windowClass: 'app-modal-window',
+                    windowClass: 'event--modal',
                     backdrop: true,
                     resolve: {
                         content: function() {

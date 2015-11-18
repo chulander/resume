@@ -6,8 +6,8 @@ function ContactState($stateProvider) {
             // templateUrl: '/app/components/contact/contact.html',
             // controller: 'ContactController as contactControler',
             onEnter: function( $stateParams, $state, $uibModal, navBarAnimation) {
-                navBarAnimation.background = 'contact_state--background';
-                navBarAnimation.status = true;
+                // navBarAnimation.background = 'contact_state--background';
+                // navBarAnimation.status = true;
                 var modalInstance = $uibModal.open({
                     backdrop: 'static',
                     keyboard: 'false',

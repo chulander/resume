@@ -5,9 +5,6 @@ function HomeController($scope, navBarAnimation, content, $uibModalInstance) {
         
     $scope.content = content;
 
-
-    
-    console.log('what is the status', navBarAnimation.status);
     
 
     $scope.dismiss = function() {

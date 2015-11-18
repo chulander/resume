@@ -21,6 +21,10 @@ function ExperiencesState($stateProvider) {
             onEnter: function(navBarAnimation) {
                 navBarAnimation.background = 'experiences_state--background';
                 navBarAnimation.status = true;
+                // navBarAnimation.navBarScroll = true;
+            },
+            onExit: function(navBarAnimation){
+                navBarAnimation.navBarScroll = false;
             }
 
         })

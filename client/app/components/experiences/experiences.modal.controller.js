@@ -16,7 +16,7 @@ function ExperiencesModalController($scope, $uibModalInstance, content, uiGmapIs
 
     })
 
-    $scope.content = content;
+    $scope.content = JSON.parse(content);
 
 }
 ExperiencesModalController.$inject = ['$scope', '$uibModalInstance', 'content', 'uiGmapIsReady', 'mapOptions'];

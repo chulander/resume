@@ -1,5 +1,13 @@
 <div class="card">
-    <img src="{{card.image}}" alt="Texto Alternativo" class="img-circle img-thumbnail">
-    <h2 class="chu-font-color chu-font-outline">{{card.name}} <i class="{{card.className}}"></i></h2>
-    <a href="{{card.url}}" target="_blank" class="btn btn-info" title="{{card.name}}">{{card.caption}}</a>
+    <div class="center-block">
+        <div class="text-center">
+            <img src="{{card.image}}" alt="Texto Alternativo" class="img-circle img-thumbnail">
+        </div>
+    </div>
+    <div class="card__content center-block">
+        <h2 class="text-center chu_font chu_font--shadow">{{card.name}} <i class="{{card.className}}"></i></h2>
+        <div class="text-center">
+            <a href="{{card.url}}" target="_blank" class="card__content--item btn btn-info chu_font chu_font--shadow" title="{{card.name}}">{{card.caption}}</a>
+        </div>
+    </div>
 </div>

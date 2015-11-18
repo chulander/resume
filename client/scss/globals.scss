@@ -2,6 +2,8 @@
 
 $chu_font--color: rgb(102, 102, 102);
 $chu_background--color: rgb(244,244,244);
+$chu_border--color: rgba(72,179,121, 0.6);
+
 $chu_background--color--fade: rgba(244,244,244, 0.8);
 
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
@@ -18,6 +20,19 @@ $chu-font: 'Raleway', sans-serif;
 	color: $chu_font--color;
 }
 
+.chu_button--center {
+    float:left;
+    margin-left: 50%;
+    position:relative;
+}
+
+.chu_font--shadow {
+    @include prefix('text-shadow', '-0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black');
+}
+
+.chu_border--color {
+    color: $chu_border--color;
+}
 body {
     font-family: $chu-font;
      box-sizing: border-box;

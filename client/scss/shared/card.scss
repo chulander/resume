@@ -19,7 +19,7 @@
     // @include prefix('transform', 'rotate(360deg)');
 }
 
-.card>.img-circle.img-thumbnail{
+.card .img-circle.img-thumbnail{
     height:40vh;
     width:40vw;
 }
@@ -28,4 +28,3 @@
     padding: 2px;
 }
 
-.angular-google-map-container { height: 400px; }

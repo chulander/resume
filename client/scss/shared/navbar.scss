@@ -2,6 +2,9 @@ navbar {
     & li>a:focus {
         outline:none;
     }
+    // & li.active--state {
+    //     background: $chu_background--color--fade;
+    // }
     @include prefix('transition', 'background 0.5s ease-in-out');
     @include prefix('transition', 'border 0.5s ease-in-out');
     font-weight: bold;
@@ -57,8 +60,9 @@ navbar {
 .navbar--fixed{
      // @include prefix('animation-duration', '0.1s');
       
-        background-color:rgba(0,0,0,1);
-        border-color:rgba(0,0,0,1);
+        background-color:rgba(0,0,0,0.75);
+        border-color:rgba(0,0,0,0.75);
+        // color: red;
         // font-weight: bold;
         // position:fixed;
         // top:0;
@@ -92,12 +96,15 @@ navbar {
 .navbar-default .navbar-nav > li > a:hover, 
 .navbar-default .navbar-nav > .active > a:hover{
     background-color: rgba(100,100,100,0.4);    
-    
  }
 
+// .navbar-default a.navbar-brand:hover,
+// .navbar-default .navbar-nav > li > a:hover {
+//     color: black;
+// }
 .navbar-default a.navbar-brand:hover,
-.navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
     color: white;
 }
@@ -112,7 +119,6 @@ navbar {
     i {
         display: inline-block;
         vertical-align: middle;
-
     }
 }
 
