@@ -197,18 +197,3 @@ connectToDb.then(function() {
     });
 
 });
-
-// Social.findAsync({}).then(function(socials) {
-//     if (socials.length === 0) {
-//         return seedSocials();
-//     } else {
-//         console.log(chalk.magenta('Seems to already be socials data, exiting!'));
-//         process.kill(0);
-//     }
-// }).then(function() {
-//     console.log(chalk.green('Seed Socials successful!'));
-//     process.kill(0);
-// }).catch(function(err) {
-//     console.error(err);
-//     process.kill(1);
-// });

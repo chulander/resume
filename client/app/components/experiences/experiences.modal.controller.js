@@ -11,7 +11,7 @@ function ExperiencesModalController($scope, $uibModalInstance, content, uiGmapIs
     //add the map to the scope
     $scope.map = mapOptions;
     uiGmapIsReady.promise().then(function(maps){
-        console.log('what is maps inside ready', maps);        
+        
         // $scope.control.refresh();
 
     })

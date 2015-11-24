@@ -23,5 +23,3 @@ var app = angular.module('app', [
 //console.log('yo name' , require('./navbar').name);
 
 module.exports = app;
-
-

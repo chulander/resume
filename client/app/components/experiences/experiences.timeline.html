@@ -25,39 +25,66 @@
     </ul>
 </div> -->
 
-
-
 <div class="experiences_state container">
-    <div ng-show="clicked" class="test">
-        Testing Background
-    </div>    
-    <div class="page-header">
-        <h1 class="text-center chu_font chu_font--shadow">Work Experience</h1>
-    </div>
-    
-    <div class="container">
-        <ul class="experiences_state__timeline">
-            <li class="experiences_state__timeline__item chu_font chu_font--outline" ng-repeat="job in jobs | orderBy:'endDate':true " job="job" id="{{$index}}">
-                <div class="experiences_state__timeline__item--left">
-                    <span>{{job.startDate | date: 'MMM'}}</span>
+  <!-- <div class="test" ng-show="clicked">
+    Testing Background
+  </div> -->
+  <div class="page-header">
+    <h1 class="text-center chu_font chu_font--shadow">Work Experience</h1>
+  </div>
 
-                </div>
-                <div class="experiences_state__timeline__item--center">
-                    <div class="experiences_state__timeline__item--center__outer">
-                        <div class="experiences_state__timeline__item--center__inner">
-                            <span>{{job.startDate | date: 'yyyy'}}</span>
-                            <!-- <button ng-click="clicked=!clicked">{{job.startDate | date: 'yyyy'}}</button> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="experiences_state__timeline__item--right" my-modal gmap="gmap" content="{{job}}" modal-controller="{{custom.controller}}" modal-template="{{custom.template}}">
-                    <h3 class="chu_font experiences_state__timeline__item__right--title">{{job.company}} - {{job.title}}</h3>
-                    <!-- <span class="chu_font experiences_state__timeline__item__right--position">{{job.position}}</span>
+  <div class="container">
+    <ul class="experiences_state__timeline">
+      <li id="a" ui-scrollpoint="+25%" class="experiences_state__timeline__item chu_font chu_font--outline" id="{{$index}}" job="job" ng-repeat="job in jobs | orderBy:'endDate':true ">
+          <span>what is {{ui-scrollpoint}}</span>
+          <div id="b" ui-scrollpoint="+50px" class="experiences_state__timeline__item--left">
+            <span>{{job.startDate | date: 'MMM'}}</span>
+          </div>
+          <div class="experiences_state__timeline__item--center">
+            <div class="experiences_state__timeline__item--center__outer">
+              <div class="experiences_state__timeline__item--center__inner">
+                <span>{{job.startDate | date: 'yyyy'}}</span>
+                <!-- <button ng-click="clicked=!clicked">{{job.startDate | date: 'yyyy'}}</button> -->
+              </div>
+            </div>
+          </div>
+          <div class="experiences_state__timeline__item--right" content="{{job}}" gmap="gmap" modal-controller="{{custom.controller}}" modal-template="{{custom.template}}" my-modal>
+            <h3 id="c" ui-scrollpoint="+100px" class="chu_font experiences_state__timeline__item__right--title">{{job.company}}
+              -
+              {{job.title}}</h3>
+            <!-- <span class="chu_font experiences_state__timeline__item__right--position">{{job.position}}</span>
                     <p class="chu_font experiences_state__timeline__item__right--date">{{job.startDate | date: 'MMM yyyy'}} - {{job.endDate | date: 'MMM yyyy'}}</p> -->
-                </div>
-                <div class="experiences_state__timeline__item__panel">
-                </div>
-            </li>
-        </ul>
-    </div>
+          </div>
+          <div class="experiences_state__timeline__item__panel"></div>
+
+      </li>
+
+      <li id="a" ui-scrollpoint="25%" class="experiences_state__timeline__item chu_font chu_font--outline" id="{{$index}}" job="job" ng-repeat="job in jobs | orderBy:'endDate':true ">
+          <span>what is {{ui-scrollpoint}}</span>
+          <div id="b" ui-scrollpoint="+50px" class="experiences_state__timeline__item--left">
+            <span>{{job.startDate | date: 'MMM'}}</span>
+          </div>
+          <div class="experiences_state__timeline__item--center">
+            <div class="experiences_state__timeline__item--center__outer">
+              <div class="experiences_state__timeline__item--center__inner">
+                <span>{{job.startDate | date: 'yyyy'}}</span>
+                <!-- <button ng-click="clicked=!clicked">{{job.startDate | date: 'yyyy'}}</button> -->
+              </div>
+            </div>
+          </div>
+          <div class="experiences_state__timeline__item--right" content="{{job}}" gmap="gmap" modal-controller="{{custom.controller}}" modal-template="{{custom.template}}" my-modal>
+            <h3 id="c" ui-scrollpoint="+100px" class="chu_font experiences_state__timeline__item__right--title">{{job.company}}
+              -
+              {{job.title}}</h3>
+            <!-- <span class="chu_font experiences_state__timeline__item__right--position">{{job.position}}</span>
+                    <p class="chu_font experiences_state__timeline__item__right--date">{{job.startDate | date: 'MMM yyyy'}} - {{job.endDate | date: 'MMM yyyy'}}</p> -->
+          </div>
+          <div class="experiences_state__timeline__item__panel"></div>
+
+      </li>
+
+
+
+    </ul>
+  </div>
 </div>

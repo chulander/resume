@@ -26,9 +26,9 @@ $chu-font: 'Raleway', sans-serif;
     position:relative;
 }
 
-.chu_font--shadow {
-    @include prefix('text-shadow', '-0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black');
-}
+// .chu_font--shadow {
+//     @include prefix('text-shadow', '-0.25px 0 black, 0 0.25px black, 0.25px 0 black, 0 -0.25px black');
+// }
 
 .chu_border--color {
     color: $chu_border--color;

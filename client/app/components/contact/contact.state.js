@@ -20,7 +20,7 @@ function ContactState($stateProvider) {
                         $state.go(navBarAnimation.prevState || 'home');
                         
                 }, function(error){
-                    console.log('what is prevState', navBarAnimation.prevState);
+                    
                         $state.go(navBarAnimation.prevState || 'home');
                 });
             }

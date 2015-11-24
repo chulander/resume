@@ -1,0 +1,5 @@
+
+.projects_state--background {
+    background: url('/asset/projects.jpg') no-repeat fixed;
+    @include prefix('background-size', 'cover');
+}

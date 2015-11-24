@@ -13,7 +13,7 @@ function ExperiencesState($stateProvider) {
                 },
                 gmap: function(uiGmapGoogleMapApi) {
                     return uiGmapGoogleMapApi.then(function(map){
-                        console.log('resolving, what is map', map);
+                   
                         return map;
                     })
                 }
@@ -21,7 +21,7 @@ function ExperiencesState($stateProvider) {
             onEnter: function(navBarAnimation) {
                 navBarAnimation.background = 'experiences_state--background';
                 navBarAnimation.status = true;
-                // navBarAnimation.navBarScroll = true;
+                navBarAnimation.navBarScroll = true;
             },
             onExit: function(navBarAnimation){
                 navBarAnimation.navBarScroll = false;
